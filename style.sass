@@ -1,0 +1,2773 @@
+//sets
+$bg-w: white
+$box-padding-lr: 0 20px
+$box-padding-td: 20px 0px
+$box-padding-all: 20px
+$area-td: 50px 0
+$anim: all 0.2s ease 0s
+$anim-no: all 0s ease 0s
+$pink: #e85445
+$gary: #7d7d7d
+$gary2: #fcfcfc
+$copy: #ffebc3
+$blue: #00a0e9
+$blue2: #7ecef4
+$blue-b: #35495e
+$blue-b2: #005982
+$red: #e74c3c
+$purple: #a4005b 
+$coco: #cfa150
+$black: #362e2b
+$yellow: #f39c12
+$og: #ff7a17
+$sf: 12px
+$bf: 16px
+$nf: 14px
+@mixin img-click
+    transition: $anim
+    cursor: pointer
+    &:hover
+        opacity: 0.7
+@mixin box-cover
+    width: 100%
+    height: 100%
+@mixin max-w-box
+    margin: 0 auto
+    width: 1100px
+@mixin botton-style-1
+    border: none
+    padding: 13px 25px
+    border-radius: 5px
+@mixin input-style-1
+    border: 1px solid #eeeeee
+    padding: 13px 20px
+    border-radius: 5px
+@mixin input-style-2
+    padding: 13px 20px
+    border-radius: 5px
+@mixin select-style
+    appearance: none
+    background: url(images/right.png) no-repeat
+    background-color: $bg-w
+@mixin center
+    position: absolute
+    left: 50%
+    transform: translate(-50%,0)
+@mixin grid-1100
+    display: grid
+    grid-gap: 15px
+    grid-template-columns: repeat(4,1fr)
+    grid-template-rows: 145px 145px
+@mixin grid-768
+    display: grid
+    grid-gap: 15px
+    grid-template-columns: repeat(3,1fr)
+    grid-template-rows: 145px 145px
+@mixin grid-480
+    display: grid
+    grid-gap: 15px
+    grid-template-columns: 1fr
+    grid-template-rows: 200px 200px
+@mixin card-1
+    border: 1px solid #eeeeee
+    border-radius: 5px
+    overflow: hidden
+@mixin title-img
+    display: inline-block
+    margin-right: 10px
+    transform: translate(0,3px)
+@mixin last-img
+    display: inline-block
+    margin-left: 10px
+    transform: translate(0,3px)
+@mixin flex-box
+    display: flex
+    align-items: center
+    justify-content: space-around
+    flex-wrap: wrap
+@mixin flex-box-2
+    display: flex
+    justify-content: space-around
+@mixin etc
+    overflow : hidden; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+@mixin img-box-1
+    overflow: hidden
+    height: 150px
+@mixin img-box-2
+    overflow: hidden
+    height: 120px
+@mixin img-box-3
+    overflow: hidden
+@mixin user-img-box
+    width: 65px
+    height: 65px
+    text-align: center
+    border: 1px solid #eeeeee
+    border-radius: 99px
+    overflow: hidden
+@mixin user-img-box2
+    width: 40px
+    height: 40px
+    text-align: center
+    border: 1px solid #eeeeee
+    border-radius: 99px
+    overflow: hidden
+
+    
+//標籤定義
+//字型
+//@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css)
+
+*
+    box-sizing: border-box
+    outline: none
+    &:focus
+        outline: none
+    // outline: 1px solid red
+a
+    text-decoration: none
+    color: inherit
+a:hover,
+.anim:hover
+    opacity: 0.5
+a,
+a:hover,
+.anim,
+.anim:hover
+    transition: $anim
+p
+    line-height: 26px
+::before
+    +title-img
+html,
+body,
+textarea
+    margin: 0
+    padding: 0
+    height: 100%
+html,
+body,
+input,
+select,
+textarea,
+button,
+table
+    font-size: 14px
+    // font-family: 微軟正黑體
+    font-family: 'Noto Sans CJK TC'
+    font-weight: normal
+ 
+textarea
+    width: 100%
+    max-height: 200px
+    resize: none
+    font-size: 14.5px
+    border: none
+img
+    max-width: 100%
+ul,ol
+    padding-left: 0
+li
+    list-style-type: none;
+label
+    margin-right: 15px
+    color: $gary
+input[type=checkbox],input[type=radio]
+    position: absolute
+    opacity: 0
+    &+label:before
+        width: 15px
+        height: 15px
+        border: 1px solid #eeeeee
+        border-radius: 5px 
+        display: inline-block
+        content: ' '
+    &:checked+label:before
+        background: url(images/click-v.png) no-repeat center center
+input[type=radio]
+    &+label:before
+        border-radius: 99px
+    &:checked+label:before
+        background: url(images/dot.png) no-repeat center center
+.upimg
+    left: 15px
+    bottom: 20px
+    z-index: 100
+    position: absolute
+    display: flex
+    align-items: flex-end
+    width: 100%
+    // label,input
+    //     display: inline-block
+    label
+        +etc
+        //display: -webkit-box
+        width: 80%
+        -webkit-line-clamp: 1
+        padding: 10 0 0 10
+        //transform: translate(10px,-4px)
+    input[type=file]
+        position: absolute
+        left: 0
+        bottom: 0
+        padding: 0
+        width: 20px
+        height: 25px
+        overflow: hidden
+        opacity: 0
+        z-index: 100
+input,
+select,
+textarea
+    +input-style-1
+select
+    +select-style
+.button-box
+    position: relative
+    margin: $area-td
+    text-align: center
+button,
+.button-box a
+    cursor: pointer
+    color: white
+    +botton-style-1
+input[type=submit],input[type=button]
+    cursor: pointer
+    border: none
+hr
+    margin: 20px 0
+    border: none
+    border-bottom: 1px solid #eeeeee
+.img-box img
+    height: 100%
+    object-fit: cover
+.user-img-box img
+    height: 95%
+    object-fit: scale-down
+::placeholder
+    color: #cccccc
+    
+    
+//客製化
+header
+    background-color: white
+    border-bottom: 5px solid #331424
+    .headerbox
+        +max-w-box
+        +flex-box
+        justify-content: flex-end
+        position: relative
+        a.logo
+            position: absolute
+            left: 0
+        ul
+            li
+                display: inline-block
+                margin-left: 15px
+            .member:before
+                content: url(images/munber.png)
+.topbanner
+    // height: 94.2%
+    height: 900px
+    background: url(images/topbg.png) no-repeat
+    background-size: cover
+    .bannerbox
+        padding-top: 200px
+        text-align: right
+        width: 900px
+        display: block
+        margin: 0 auto
+.searchbox
+    margin-top: 80px
+    text-align: left
+    position: relative 
+    select
+        width: 200px
+        border-radius: 5px 0 0 5px
+        margin-right: -10px
+        background-position: 170px center
+        transform: translate(0,0)
+    input
+            width: 650px
+            background: url(images/search.png) no-repeat 610px center
+            background-color: $bg-w
+    .ad-search
+            cursor: pointer
+            color: white
+            text-decoration: underline
+            position: absolute
+            right: 0
+            margin: 10px 70px
+.godown
+    margin-top: 150px
+    cursor: pointer
+    +center
+.wrapper
+    +max-w-box
+    margin: 50px auto
+.showbox
+    .selectedshops:before
+        content: url(images/selectedshops.png)
+    .news-title:before
+        content: url(images/news.png)
+    .rfq:before
+        content: url(images/rfq.png)
+    .ebook:before
+        content: url(images/ebook.png)
+    .expo:before
+        content: url(images/expo.png)
+    .selectedshops-box,.expo-box
+        >li
+            +grid-1100
+            .card
+                position: relative
+                +card-1
+                &:hover .masking
+                    transform: translate(0%,0) 
+                .masking
+                    transition: $anim
+                    transform: translate(-101%,0%)
+                    +box-cover
+                    color: white
+                    background-color: rgba(0, 0, 0, 0.8)
+                    padding: $box-padding-lr
+                    position: absolute
+                    &:hover
+                        opacity: 1
+                    h3
+                        color: #8fc31f
+                        margin-bottom: 0
+                    p
+                        margin-top: 0
+                    ul
+                        padding-top: 10px
+                    >a
+                        position: absolute
+                        right: 0
+                        margin: -20px 20px
+                        color: #454545
+    .news-box,.rfq-box,.expo-box
+        >li
+            +grid-1100
+            grid-template-rows: auto
+            .card
+                +card-1
+                padding-bottom: 20
+                a
+                    display: block
+                .img-box
+                    +img-box-1
+                .text-box
+                    padding: $box-padding-lr
+                    h3
+                        width: 100%    
+                        +etc
+                    li.date
+                        color: $pink
+                        display: inline-block
+                        &:before
+                            transform: translate(0,0)
+                    li.site
+                        width: 115px
+                        &:before
+                            content: url(images/site.png)
+                    li.time:before
+                        content: url(images/date.png)
+    .expo-box
+        >li
+            // grid-template-rows: 240px
+            .f007
+                position: absolute
+                bottom: 20px
+            .card
+                padding-bottom: 0
+    .ebook-box
+        +grid-1100
+        grid-template-columns: 1fr 3fr
+        grid-template-rows: 265px
+        .book-top
+            position: relative
+            .newicon
+                position: absolute
+                top: -5px
+                left: 30px
+                z-index: 1
+        .book-list
+            +card-1
+        >li
+            padding: $box-padding-all
+            text-align: center
+            ul
+                +grid-1100
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+                grid-template-rows: 220px
+.tag-area
+    margin: $area-td
+    background: url(images/tag-bg.jpg) no-repeat
+    background-size: cover
+    .tagbox
+        color: white
+        padding: $box-padding-td
+        +max-w-box
+        h3:before
+            content: url(images/tag.png)
+        li
+            display: inline-block
+            margin: 2px 1px
+            a
+                color: #59493f
+                display: block
+                padding: 10px 15px
+                border-radius: 5px
+                background-color: white
+.categories-area
+    background: url(images/cat-bg.png) no-repeat right bottom
+    padding: $area-td
+    .categoriesbox
+        +max-w-box
+        h3
+            margin-bottom: 40px
+            &:before
+                content: url(images/cat.png)
+        .list-block
+            display: inline-block
+            .cat-top
+                background-color: #eeeeee
+                padding: 15px 20px
+.categories-block
+    padding: $area-td
+    h4
+        color: $pink
+    ul
+        columns: 3
+        li
+            border-left: 1px solid #eeeeee
+            padding: 0 20px
+            line-height: 30px
+.partner-area
+    padding: 50px 0
+    background-color: #eeeeee
+    .partnerbox
+        +max-w-box
+        li
+            +grid-1100
+            grid-template-rows: 120px
+footer
+    color: white
+    height: 400px
+    background: url(images/footer-bg.jpg) no-repeat
+    background-size: cover
+    .footerbox
+        +max-w-box
+        +grid-1100
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: 200px
+        padding: 50px 0
+        ul
+            margin-left: 40px
+            display: inline-block
+            vertical-align: top
+            line-height: 26px
+        p
+            margin-top: 100px
+            color: $copy
+.unslider
+    position: relative
+    .unslider-arrow
+        top: 50%
+        transform: translate(0,-50%)
+        padding: 5% 10px
+        z-index: 100
+        background-color: rgba(255, 255, 255, 0.5)
+        &:hover
+            background-color: #f4f2f4
+            opacity: 1
+    .unslider-arrow.prev
+        left: 0
+    .unslider-arrow.next
+        right: 0
+        
+//about
+.page-banner
+    height: 200px
+    background: url(images/page-banner.jpg) no-repeat
+    background-size: cover
+    img
+        display: block
+        margin: 0 auto
+        padding: 40px 0
+.search-page
+    padding: 35px 0 55px
+    background-color: $gary2
+    .searchbox
+        margin: 0 auto
+        width: 900px
+        .ad-search
+            color: $pink
+.page-wrapper
+    //position: relative
+    padding: 20px 0 200px
+    +max-w-box
+    min-height: 700px
+    >h3:after
+        width: 130px
+        border-bottom: 1px solid black
+        display: inline-block
+        content: ' '
+        transform: translate(20px, -5px)
+    h3
+        display: inline-block
+    content
+        ul,li,p
+            // font-weight: 100
+.normal-page
+    content
+        display: block
+    ul
+        padding-left: 25
+        li
+            // font-weight: 100
+            line-height: 26px
+    strong
+        font-style: italic
+        color: $pink
+        padding: 25
+        &:before
+            font: normal normal normal 14px/1 FontAwesome
+            font-size: 20px
+            margin-right: 25px
+            // transform: translate(-5px,-5px)
+            content: '\f10d'
+.breadcrumb
+    float: right
+    display: flex
+    li
+        +etc
+        -webkit-line-clamp: 1
+        vertical-align: top
+        max-width: 300px
+        a
+            color: $pink
+            text-decoration: underline
+    li+li:before
+        color: #CCCCCC
+        content: '/ '
+        padding: 0 5px
+.notice
+    overflow: hidden
+    .quantity
+        color: $pink
+    h4
+        display: inline-block
+    form
+        float: right
+    select
+        width: 180px
+        background-position: 90% center
+
+//RFQ
+content.rfq
+    .endlessscroll-box
+        +flex-box
+        margin: 0
+        justify-content: space-between
+        .rfq-card
+            +card-1
+            margin-top: 15px
+            flex-basis: 19%
+            >a
+                display: block
+            .img-box
+                +img-box-2
+                img
+                    width: 100%
+            .card-box
+                padding: $box-padding-lr
+                ul
+                    margin: 15px 0
+                    color: $pink
+                h4
+                    +etc
+.tag:before,
+.mark:before,
+.date:before
+    transform: translate(0,0)
+.tag
+    color: $gary
+    &:before
+        content: url(images/tag-icon.png)
+.mark:before
+    content: url(images/mark.png)
+.date:before
+    content: url(images/date.png)
+#loading
+    text-align: center
+
+//Book    
+.book-box
+    margin: 50px 0 150px
+    text-align: center
+    select
+        width: 150px
+        background-position: 120px center
+    .bookimg
+        width: 420px
+        position: relative
+        margin: 50px auto
+        box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.15)
+        &:hover .masking
+            cursor: pointer
+            opacity: 1
+        .masking
+            opacity: 0
+            width: 100%
+            height: 100%
+            color: white
+            background-color: rgba(0, 0, 0, 0.6)
+            position: absolute
+            p
+                margin-top: 250px
+    .book-list
+        margin-top: 30px
+        +input-style-1
+        display: flex
+        justify-content: space-between
+        padding: 25px 25px 0
+    .button-box img
+        margin: 70px 0 0 -160px
+        position: absolute
+        +center
+.pay,
+.taiwan
+    background: $blue
+.plan,
+.overse
+    margin-left: 25px
+    background: $red
+
+//News
+.news
+    display: flex
+    justify-content: space-between
+    .content-left
+        flex-basis: 73%
+        li.news-card
+            +card-1
+            margin-top: 10px
+            .link
+                display: flex
+        li.news-card,li.news-card>.link
+            height: 145px
+        .img-box
+            +img-box-3
+            flex-basis: 27%
+        .card-box
+            padding: 0 20px
+            flex-basis: 73%
+            h4,p
+                +etc
+            p
+                line-height: 20px
+                margin-top: 15px
+                color: $gary
+            h4
+                margin-bottom: 0
+                -webkit-line-clamp: 1
+            li
+                margin-right: 20px
+            ul,li
+                display: inline-block
+            ul.rate
+                float: right
+                i
+                    font-size: 18px
+                    transform: translate(0,-2px)
+            .info
+                color: $pink
+            .good
+                color: $red
+            .bad
+                color: $gary
+    .content-right
+        padding: 0 20px
+        flex-basis: 25%
+        h3.sort:before
+            transform: translate(0,3px)
+            content: url(images/sort.png)
+        li
+            margin: 15px 0
+.news-tag:before,
+.good:before,
+.bad:before,
+h3.sort:before
+    transform: translate(0,0)
+.news-tag:before
+    content: url(images/news-tag.png)
+// .good:before
+//     content: '\f164'
+//     font-family: FontAwesome
+//     color: #e74c3c
+//     font-size: 20px
+//     margin-left: 20px;
+// .bad:before
+//     content: '\f165'
+//     color: #b5b5b5
+//     font-family: FontAwesome
+//     font-size: 20px
+//     margin-left: 20px
+            
+//exhibitions
+.ex
+    .content-left
+        li.ex-card,li.ex-card>.link
+            height: 210px
+            .img-box
+                flex-basis: 35%
+            .card-box
+                flex-basis: 65%
+            .ex-info
+                color: $pink
+                margin: 20px 0 0
+                column-count: 2
+                li
+                    margin: 0 0 5px
+            .card-box ul.number-box li
+                display: block
+            .number-title
+                color: $gary
+                font-size: $sf
+            .number
+                color: $blue2
+                font-size: $bf
+                margin-top: 3px
+            .card-box ul.info-view
+                float: right
+            .card-box ul
+                vertical-align: top
+            ul.info-view
+                margin-top: 12px
+                li
+                    margin-right: 5px
+                a
+                    +botton-style-1
+                    color: white
+                    padding: 10px 18px
+                .l-news
+                    background: $gary
+                .l-album
+                    background: $purple
+
+.site:before,
+.web:before
+    transform: translate(0,0)
+.site:before
+    content: url(images/site.png)
+.web:before
+    content: url(images/web.png)
+    
+//Contact007
+form.contact
+    margin: 50px auto 250px
+    width: 800px
+    position: relative
+    .list-box
+        margin: 10px 0
+        display: flex
+        align-items: baseline
+        justify-content: center
+        label
+            text-align: right
+            padding-right: 20px
+            flex-basis: 20%
+        .title-id
+            color: black
+            font-weight: 700
+        textarea
+            min-height: 200px
+        p,input,textarea
+            margin: 0
+            flex-basis: 80%
+    .recaptcha-box
+        position: absolute
+        right: 0
+        width: 300px
+        text-align: right
+        input
+            width: 200px
+            border: none
+            color: white
+            background: $coco
+            
+//Advertisement           
+content.Adver
+    p
+        margin-top: 50px
+ul.tab-page
+    height: 49px
+    padding-left: 20px
+    border-bottom: 1px #eeeeee solid
+    li
+        cursor: pointer
+        +input-style-1
+        display: inline-block
+        border-bottom: none
+        border-radius: 5px 5px 0 0
+        margin: 0 3px 0
+        // transform: translate(0,0)
+        background-color: $gary2
+        &:hover
+            color: $gary
+    li.active
+        transform: translate(0,1px)
+        padding-bottom: 14px
+        background: white
+        opacity: 1
+        
+//Login/Register
+.error
+    border-color: $pink
+.login-page
+    padding: 50px 0
+    text-align: center
+.pupbox
+	margin: 50px auto 100px
+	width: 600px
+	+input-style-1
+	padding: 20px 0 50px
+	.login-title:before
+
+			content: url(images/login-img.png)
+	.padding-lr
+		padding: $box-padding-lr
+		p
+			padding: 0 20px
+			color: $gary
+		.social-box
+			+flex-box-2
+			button
+				flex-basis: 50%
+			.fb
+				background: url(images/fb.png) no-repeat 15px center
+				background-color: #23599b
+				margin-right: 10px
+			.google
+				background: url(images/google.png) no-repeat 15px center
+				background-color: #dd4b39
+		.login-box
+			input
+				margin-bottom: 10px
+				width: 100%
+		ul
+			color: $pink
+			+flex-box-2
+			align-items: center
+			li
+				width: 32%
+		input[type=submit]
+			color: white
+			width: 200px
+			background: $red
+			margin-top: 50px
+
+//phone-page
+.phone-page
+    .pupbox
+        padding: 20px 0
+        .footer-next
+            text-align: right
+            a
+                color: $red
+                &:after
+                    content: url(images/right2.png)
+                    +last-img
+    .flexbox
+        +flex-box-2
+        margin: 10px 0
+        justify-content: flex-start
+        align-items: center
+        label
+            flex-basis: 10%
+        select
+            background-position: 90% center
+            width: 40%
+        .phonebox
+            width: 90%
+            +flex-box-2
+            .phone-code
+                +input-style-1
+                margin-right: -2px
+                flex-basis: 25%
+                border-radius: 5px 0 0 5px
+            .number
+                border-radius: 0 5px 5px 0
+                flex-basis: 75%
+            .enter-code
+                margin-right: 5px
+                flex-basis: 80%
+            .get-code
+                background-color: $black
+                color: white
+                flex-basis: 20%
+        p
+            padding: 0 20px
+            text-align: left
+
+//.last-page
+.last-page
+    a
+        color: $pink
+    span,.garee-click
+        margin-top: 30px
+        display: block
+    .genderbox
+        margin-bottom: 20px
+    .genderbox input,.genderbox label
+        display: inline-block
+        width: auto
+    .user:before
+   
+        content: url(images/user.png)
+    .flexbox
+        +flex-box-2
+        align-items: flex-start
+        select
+            background-position: 90% center
+        .first,select
+            width: 35%
+            margin-right: 10px
+        .last,.addressbox
+            flex-basis: 65%
+    p
+        padding: 0 20px
+        text-align: left
+    input
+        margin-bottom: 10px
+        width: 100%
+    #garee,#man,#female
+        width: auto
+.warn
+    display: block
+    padding: 5px 0
+    color: $red
+    &:before
+        transform: translate(0,6px)
+        content: url(images/warn.png)
+
+//news-page
+.news-page
+    ul.info li
+        color: $pink
+        display: inline-block
+        margin-right: 15px
+    ul.click-box
+        margin: 50px 0
+        li
+            margin-right: 25px
+            display: inline-block
+        .click,span
+            +input-style-1
+            display: inline-block
+        .click
+            color: white
+            cursor: pointer
+            border: none
+            margin-right: 15px
+            width: 120px
+            text-align: center
+            &:before
+           
+        .like
+            background-color: $red
+            &:before
+                content: url(images/good-w.png)
+        .dislike
+            background-color: $gary
+            &:before
+                content: url(images/bad-w.png)
+    .talk:before
+        content: url(images/talk.png)
+        transform: translate(0,8px)
+    .news-footer
+        transform: translate(0,-40px)
+        text-align: center
+.comments
+    +input-style-1
+    background-color: #fcfcfc
+    border: none
+    padding-top: 20px
+    .user-massage img
+        +img-click
+    .user-comment
+        +flex-box-2
+        .user-img-box
+            margin-right: 15px
+            background-color: white
+            +user-img-box
+        .massage-box
+            flex-basis: 89%
+            .text-box
+                position: relative
+            .enter-textarea
+                height: 160px
+                textarea
+                    height: 100px
+            ul.meetbox
+                margin-top: 100px
+                .comment-show
+                    margin: 20px 0
+                    display: flex
+                    .user-card
+                        padding: 20px
+                        border-radius: 5px
+                        background-color: white
+                        position: absolute
+                        display: none
+                        border: 1px solid #eeeeee
+                        width: 350px
+                        box-shadow: 0 0 10px #eeeeee
+                        li
+                            margin-right: 15px
+                            display: inline-block
+                        i
+                            transform: translate(0,-5px)
+                        .good i
+                            color: $pink
+                        .bad i
+                            color: $gary
+                    .user-massage
+                        flex-basis: 93%
+                        .userinfo
+                            display: inline
+                            &:hover .user-card
+                                display: block
+                        h4
+                            display: inline-block
+                            color: $blue
+                            padding: 10px 0 0
+                            margin: 0
+                        span.tag-reply
+                            cursor: pointer
+                            width: 75px
+                            display: block
+                            color: white
+                            font-size: 10px
+                            padding: 7px 10px 
+                            border-radius: 5px
+                            background-color: $blue
+                            margin-top: 10px
+                            &:before
+                                transform: translate(0,0)
+                                content: url(images/reply.png)
+                .user-img-box
+                    +user-img-box2
+    .warn,.massage-submit
+        display: inline-block
+    .massage-submit
+        background-color: $coco
+        color: white
+        width: 150px
+        margin-top: 10px
+        float: right
+        transform: translate(0,-50px)
+.warn a
+    text-decoration: underline
+.company:before
+    content: url(images/company.png)
+    
+//exhibitions-page
+.exhibitions-page
+    h4.ex-nmae:before
+        transform: translate(0,8px)
+        content: url(images/exhibitions.png)
+    h4.ex-info:before
+        content: url(images/tag.png)
+    .ex-table-info
+        margin: 30px 0
+        width: 100%
+        +input-style-1
+        padding: 0
+        ::before
+            transform: translate(0,0)
+        tr:not(:last-child)
+            td
+                border-bottom: 1px solid #eeeeee
+        td
+            color: $gary
+            padding: 20px
+            &:before
+                display: inline-block
+                width: 130px
+                color: black
+                text-align: right
+                font-weight: bold
+                margin-right: 20px
+                vertical-align: top
+        tr.booth-box
+            td
+                color: $blue
+                text-align: center
+                &:before
+                    width: auto
+            a
+                text-decoration: underline
+        .ex-Date:before
+            content: 'Date'
+        .ex-Place:before
+            content: 'Place'
+        .ex-Venue:before
+            content: 'Venue'
+        .ex-Edition:before
+            content: 'Edition'
+        .ex-Frequency:before
+            content: 'Frequency'
+        .ex-Official:before
+            content: 'Official Website'
+        .ex-booth-number:before
+            content: 'FASTENER 007 booth number'
+    .ex-show
+        display: flex
+        justify-content: space-between
+        .show1,.show2
+            flex-basis: 49.5%
+        .show1
+            tr
+                td:first-child
+                    color: black
+        .show2
+            h3
+                color: $blue
+            tr
+                td:first-child
+                    color: $blue
+        table
+            +input-style-1
+            padding: 0
+            tr:not(:last-child)
+                td
+                    border-bottom: 1px solid #eeeeee
+            td
+                vertical-align: top
+                color: $gary
+                padding: 20px
+            td:first-child
+                text-align: right
+                width: 200px
+ul.line-box
+    margin: 0
+    text-align: right
+    li
+        color: white
+        //background-color: $gary
+        display: inline-block
+        margin-left: 10px
+        //border-radius: 5px
+        //overflow: hidden
+        +input-style-2
+        cursor: pointer
+        //a
+            display: block
+            
+        &:last-child
+            background-color: $purple
+
+//Exhibition Album
+.ex-album
+    .content-left
+        flex-basis: 100%
+        .ex-album-title:before
+            content: url(images/site-red.png)
+        .album-name
+            margin: 50px 0 10px
+            &:before
+                content: url(images/picture.png)
+        li.ex-card
+            height: 250px
+            >.link
+                height: 100%
+                .img-box img
+                    object-fit: cover;
+                .card-box
+                    ul.ex-info
+                        display: block
+                        li
+                            display: block
+                    ul.number-box li
+                        display: inline-block
+                        vertical-align: middle
+        .album-photo
+            display: flex
+            justify-content: flex-start
+            flex-wrap: wrap
+            li
+                flex-basis: 20%
+                margin-bottom: -4px
+                img
+                    +img-click
+
+//Search-shop
+li.year:before
+    color: $gary
+    margin-right: 10px
+    content: 'Since'
+.shop-tag:before
+    color: $gary
+    transform: translate(0,1px)
+    content: url(images/search-shop.png)
+
+//shop-ex
+.line-box
+    flex-basis: 40%
+    text-align: center
+    li.ubooth
+        background-color: $blue
+    li.talktalk
+        position: relative
+        padding-left: 50px
+        background-color: $purple
+        &:before
+            position: absolute
+            margin: -3px 0 0 -30px
+            content: url(images/007.png)
+.shop-box
+        display: block
+        position: relative
+.shop-ex-page
+    .booking-box
+        margin-bottom: 10px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        .ex-info
+            flex-basis: 60%
+            h4
+                margin-top: 10px
+                +etc
+                -webkit-line-clamp: 1
+            span
+                color: $pink
+        
+    .ex-info-date
+        color: $pink
+        columns: 2
+    .booking-box
+        +input-style-1
+    .shop-expo
+        margin-top: 50px
+        &:before
+            transform: translate(0,2px)
+            content: url(images/shop-expo.png)
+    .shop:before
+        transform: translate(0,1px)
+        content: url(images/shop.png)
+    .ex-info-date
+        margin: 0 0 10px
+        li
+            margin: 0 0 5px
+    .user-add
+        margin-right: 10px
+        li
+            margin-right: 5px
+            .user-img-box
+                +user-img-box2
+                img
+                    transform: translate(0.5px,0)
+    .user-add li, .user-add, .ex-info p
+        display: inline-block
+        vertical-align: middle
+.shop-name:before
+        content: url(images/company-red.png)
+.fixed
+    right: 2%
+    top: 200px
+    position: fixed
+    z-index: 100
+    .fixed-menu
+        width: auto
+    li
+        margin-bottom: 5px
+        background-color: white
+        border-radius: 5px
+        overflow: hidden
+        border: 1px solid #eeeeee
+        box-shadow: 2px 5px 10px rgba(0,0,0,0.1)
+        a
+            +input-style-2
+            display: block
+    .active
+        color: white
+        border: none
+        background-color: $blue
+                    
+//shop-products
+.shop-products
+    .shop-products-card
+        .tag
+            color: $pink
+        li:before
+            width: 15px
+    .shop-products-title:before
+        content: url(images/products.png)
+        transform: translate(0,6px)
+    .notice
+        overflow: hidden
+        margin: 50px 0 0
+        h4,form
+            display: inline-block
+        h4
+            margin: 8px 0 0
+        form
+            margin-top: 0px
+            float: right
+li.quantity:before
+    content: url(images/quantity.png)
+    
+//shop-info
+.shop-info-page
+    ul.line-box
+        margin-top: 50px
+        text-align: center
+        li
+            width: 220px
+    .ex-table-info
+        td:before
+            width: 150px
+            transform: translate(0,0)
+        .certif-list li
+            color: black
+            margin-right: 15px
+            display: inline-block
+            &:before
+                content: url(images/click-v.png)
+        img
+            display: inline-block
+            margin-right: 15px
+        .lang
+            color: $blue
+            margin: 0 0 0 25px
+            li+li:before
+                content: '、'
+            &:before
+                content: url(images/lang.png)
+        .lang,.lang li
+            display: inline-block
+            vertical-align: top
+.ex-intro:before
+    content: url(images/company-intro.png)
+    transform: translate(0,4px)
+.ex-certif:before
+    content: url(images/certif.png)
+    transform: translate(0,6px)
+.shop-type:before
+    content: 'Business Type'
+.shop-year:before
+    content: 'Year of Establishment'
+.shop-products-nm:before
+    content: 'Products'
+.shop-zone:before
+    content: 'Market Zone'
+.address:before
+    content: 'address'
+.country:before
+    content: 'Country'
+.tel:before
+    content: 'Tel'
+.fax:before
+    content: 'Fax'
+.contactper:before
+    content: 'Contact Person'
+.shop-info-page .company-info
+    border: none
+    td
+        width: 50%
+        vertical-align: top
+    p
+        display: inline-block
+        margin: 0
+        width: 330px
+.shop-mainproducts .partner-area
+    padding-top: 20px
+    background-color: white
+    li
+        text-align: center
+        grid-template-rows: 160px
+        .img-box
+            width: 265px
+            height: 120px
+            
+//Password reset
+.pw-text
+    text-align: left
+    
+//popup-seach
+.popup-bg
+    display: none
+    position: fixed
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.7)
+    z-index: 1000000
+    .padding-box
+        padding: 20px
+    hr
+        margin: 0
+    h3 
+        margin-left: 30px
+    .ad-seach,.notice
+        position: relative
+        border-radius: 5px
+        background-color: white
+        width: 1190px
+        margin: 50px auto
+        hr
+            margin: 0
+        .close
+            position: absolute
+            right: 50px
+            margin-top: -40px
+            cursor: pointer
+        h3
+            margin-left: 30px
+            &:before
+                content: url(images/search-red.png)
+        table
+            font-size: $sf
+            text-align: left
+            width: 100%
+            th
+                padding: 10px 15px
+                &:last-child
+                    color: $gary
+            td
+                width: 16.6%
+                vertical-align: top
+                padding: 0 15px
+                select
+                    margin-top: 18px
+                    width: 100%
+                    background-position: 90% center
+                li
+                    margin: 5px 0
+                p
+                    font-weight: bold
+                    margin-top: 10px
+                &:last-child
+                    color: $gary
+                span
+                    color: $pink
+        .search-footer
+            text-align: right
+            input[type=submit]
+                background-color: $red
+                color: white
+                width: 150px
+    .notice
+        width: 800px
+        text-align: center
+        margin-top: 200px
+        .img-box
+            position: absolute
+            +center
+            top: -60
+            height: 100px
+            background-color: white
+            border-radius: 99px
+            width: 100px
+            img
+                height: auto
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%)
+        h3
+            margin: 50px 0 0 0
+            &:before
+                content: normal
+        .close
+            position: inherit
+            float: inherit
+            margin-top: 0px
+            +input-style-2
+            background-color: $red
+            width: 30%
+            color: white
+            margin: 50px auto 20px
+.popup-notice
+    display: block
+    .notice
+        overflow: inherit
+
+//Product-page
+.product-page
+    .favorite
+        margin: 15px 0 25px
+        svg
+            fill: red
+        label
+            color: $red
+        input[type=checkbox]
+            &+label:before
+                width: 25px
+                height: 25px
+                border: none
+                border-radius: 0
+                display: inline-block
+                background: url(images/heart.svg) no-repeat center center
+                transform: translate(0,6px)
+            &:checked+label:before
+                background: url(images/heart2.svg) no-repeat center center
+    .product-name:before
+        content: url(images/products.png)
+        transform: translate(0,5px)
+    .product-show
+        height: 130px
+        +flex-box-2
+        justify-content: space-between
+        li
+            display: block
+            img
+                +img-click
+                height: 100%
+                object-fit: cover 
+            &:not(:last-child)
+                margin: 0 13px 0 0 
+    .pro-table td
+        width: 33.3333%
+        vertical-align: top
+        &:before,p
+            vertical-align: top
+            display: inline-block
+        &:before
+            width: 130px
+        p
+            width: 50%
+            margin: 0
+            transform: translate(0,-3px)
+    .pro-category:before
+        content: 'Category'
+    .pro-mn:before
+        content: 'Model Number'
+    .pro-pfo:before
+        content: 'Product of Origin'
+    .pro-material:before
+        content: 'Material'
+    .pro-st:before
+        content: 'Surface Treatment'
+    .pro-spec:before
+        content: 'Specifications'
+    .pro-mo:before
+        content: 'Minimum Order'
+
+//rfq-page
+.rfq-page
+    .user-date
+        margin: 20px
+        position: absolute
+        li
+            display: inline-block
+            vertical-align: top
+            margin-right: 15px
+            h3
+                padding: 10px 0 10px
+                margin: 0
+            .user-card-box:hover .user-card
+                display: block
+        .user-img-box
+            +user-img-box
+            background-color: white
+        .user-card
+            position: absolute
+            display: none
+            background-color: white
+            width: 300px
+            padding: 20px
+            border-radius: 5px
+            z-index: 100
+    .shop-img
+        height: 400px
+        img
+            height: 100%
+            object-fit: cover
+    .need
+        margin: 30px 0
+        text-align: center
+        h4,p
+            display: inline-block
+        h4
+            margin-right: 10px
+        p
+            color: $gary
+            &:not(:last-child)
+                margin-right: 30px
+
+//chat-box
+.chatbox,.chatbox-button
+	position: fixed
+	z-index: 1000
+	right: 50px
+	bottom: 50px
+	box-shadow: 2px 2px 10px rgba(0,0,0,0.15)
+.chatbox-button
+	height: 70px
+	width: 70px
+	border-radius: 99px
+	background-color: $purple
+	cursor: pointer
+	overflow: hidden
+	img
+		object-fit: none
+.chatbox
+    width: 600px
+    height: 400px
+    background-color: white
+    display: flex
+    overflow: hidden
+    border-radius: 5px
+    .chatbox-left
+        width: 200px
+        .search-user-bar
+            padding: 10px 10px
+            //border-bottom: 1px solid #eeeeee
+            background-color: $purple
+            input
+                width: 100%
+                border-radius: 99px
+                border-color: rgba(255, 255, 255, 0.3)
+                background-color: $purple
+                color: white
+                &::placeholder
+                    color: rgba(255, 255, 255, 0.3)
+        ul
+            overflow-y: auto
+            height: 333px
+            margin: 0
+            border-right: 1px solid #eeeeee 
+            li
+                display: flex
+                align-items: center
+                padding: 5px 10px
+                border-bottom: 1px solid #eeeeee
+                &:hover
+                    cursor: pointer
+                    background-color: rgba(238, 238, 238,0.3)
+                .talk-info
+                    width: 70%
+                    margin-left: 10px
+                    position: relative
+                    img
+                        position: absolute
+                        right: 0
+                        top: 5px
+                        width: 10px
+                        height: 10px
+                    p
+                        +etc
+                        -webkit-line-clamp: 1
+                .user-img-box
+                    +user-img-box2
+                    img
+                        height: 100%
+                        object-fit: cover
+    .chatbox-right
+        width: 400px
+        .user-title
+            position: relative
+            text-align: center
+            padding: 10px
+            height: 68px
+            color: white
+            //border-bottom: 1px solid #eeeeee 
+            background-color: $purple
+            a
+                display: inline-block
+                text-decoration: underline
+            .close-chat
+                position: absolute
+                right: 15px
+            .close-chat,a
+                margin-top: 12px
+        .active-chat
+            border-bottom: 1px solid #eeeeee 
+            height: 200px
+            padding: 10px
+            display: flex
+            justify-content: flex-start
+            flex-direction: column
+            overflow-y: auto
+            overflow-x: hidden
+            .chat
+                max-width: 85%
+                margin: 5px 0
+                .bubble
+                    +input-style-2
+                    position: relative
+                    display: inline-block
+                    max-width: 270px
+                    //white-space: pre-wrap
+                    word-wrap: break-word
+                    &:after
+                        top: 50%
+                        border: solid transparent
+                        content: " "
+                        height: 0
+                        width: 0
+                        position: absolute
+                        pointer-events: none
+                        border-color: rgba(136, 183, 213, 0)
+                        border-width: 10px
+                        margin-top: -10px
+                    a
+                        color: $blue-b2
+                        text-decoration: underline
+                        max-width: 270px		
+            span
+                font-size: 10px
+                color: #dbdbdb
+                display: block
+            .you
+                color: white
+                align-self: flex-start
+                float: left
+                .bubble
+                    background-color: $yellow
+                    &:after
+                        right: 100%
+                        border-right-color: $yellow
+                span
+                    text-align: left
+            .me
+                float: right
+                align-self: flex-end
+                text-align: right
+                .bubble
+                    background-color: #eeeeee
+                    text-align: left
+                    &:after
+                        left: 100%
+                        border-left-color: #eeeeee
+                span
+                    text-align: right
+        .write
+            padding: 10px
+            position: relative
+            .write-box
+                position: relative
+                textarea
+                    //+input-style-1
+                    height: 70px
+                .enter-img
+                    position: absolute
+                    right: 10px
+                    //top: 45px
+                    bottom: 10
+                    cursor: pointer
+            ul
+                margin-left: 20px
+                li
+                    display: inline-block
+                    margin-right: 10px
+                    color: #a3a3a3
+                    cursor: pointer
+                    position: relative
+                    vertical-align: top
+                    span
+                        margin-left: 10px
+                        transform: translate(0, -6px)
+                        display: inline-block
+                    .function-list
+                        position: absolute
+                        width: 300px
+                        height: 330px
+                        background-color: white;
+                        border: 1px solid #eeeeee
+                        top: -100%
+                        left: 50%
+                        transform: translate(-50%,-100%)
+                        border-radius: 5px
+                        display: none
+                        box-shadow: 2px 2px 10px rgba(0,0,0,0.15)
+                        .function-close
+                            position: absolute
+                            right: 15px
+                            top: 15px
+                            z-index: 1000
+                        h4
+                            border-bottom: 1px solid #eeeeee
+                            padding: 15px
+                            margin: 0
+                            cursor: auto
+                            color: black
+                        .rfq-order:before
+                            content: url(images/rfq2.png)
+                        .product-order:before
+                            content: url(images/Shop2.png)
+                        .expo-order:before
+                            content: url(images/ExhibitionPlanner.png)
+                        .list-box
+                            height: 273px
+                            overflow-y: scroll
+                            cursor: auto
+                        .list
+                            //width: 100%
+                            margin: 10px 20px
+                            padding-bottom: 10px
+                            border-bottom: 1px solid #eeeeee
+                            display: flex
+                            align-items: flex-start
+                            font-size: $sf
+                            .order-img-box
+                                +user-img-box2
+                                margin-right: 15px
+                                border-radius: 0
+                                img
+                                    height: 100%
+                                    object-fit: cover
+                            .list-right
+                                flex-basis: 75%
+                                p
+                                    width: 100%
+                                    +etc
+                                    margin: 0 0 10px
+                                    display: -webkit-box
+                                    line-height: 20px
+                                .link
+                                    color: white
+                                    +input-style-2
+                                    background-color: $blue
+                                    display: inline-block
+                                    padding: 5px 10px
+                                    cursor: pointer
+                                    float: right
+                    input[type=file]
+                        width: 10px
+                        height: 10px
+                        position: absolute
+                        padding: 0
+                        opacity: 0
+                .up-img
+                    overflow: hidden	
+.chat-box-out
+	display: none
+#now-chat
+	display: block
+.mobile-userlist,.list-close
+    display: none
+
+//ratings-page
+.ratings-page
+    .ratings-box
+        width: 600px
+        overflow: hidden
+        .ratings-button
+            margin: 0
+            display: flex
+            justify-content: center
+            .dislike,.like
+                //font-size: 23px
+                text-align: center
+                cursor: pointer
+                i
+                    //transition: all 0.2s ease-in-out
+                    &:before
+                        font-size: 20px
+            .dislike
+                &:after
+                    content: 'Bad'
+                &:hover
+                    color: $gary
+            .like
+                margin-right: 60px
+                &:after
+                    content: 'Good'
+                &:hover
+                    color: $red
+            .like-active
+                color: $red
+            .dislike-active
+                color: $gary
+            span
+                font-size: $nf
+                margin-left: 10px
+                //display: block
+                transform: translate(0,3px)
+        form
+            text-align: center
+            textarea
+                max-height: 100px
+                margin: 20 0
+                border: 1px solid #eeeeee
+                padding: 15 20
+                border-radius: 5px
+            .ratings-submit
+                +input-style-2
+                width: 100%
+                background-color: $coco
+                color: white
+                cursor: pointer
+        .ratings-list
+            overflow-y: auto
+            height: 310px
+            li
+                display: flex
+                border-bottom: 1px solid #eeeeee
+                padding: 20px
+            .user-img-box
+                margin-right: 20px
+                +user-img-box
+                background-color: white
+                img
+                    height: 100%
+                    object-fit: cover
+            .user-ratings
+                flex-basis: 85%
+                h4
+                    display: inline-block
+                    margin-bottom: 10px
+                .u-good:after
+                    content: '\f164'
+                    font-family: FontAwesome;
+                    color: $red
+                    font-size: 20px
+                    margin-left: 20px
+                .u-bad:after
+                    content: '\f165'
+                    color: $gary
+                    font-family: FontAwesome;
+                    font-size: 20px
+                    margin-left: 20px
+                .u-text
+                    color: #606060
+                    font-size: $sf
+        .padding-box
+            position: relative
+            .ratings-change
+                position: absolute
+                right: 20px
+                top: 20px
+                select
+                    width: 150px
+                    background-position: 90% center
+.rating-title
+	margin: 0 35px
+	&:before
+		content: url(images/talk.png)
+		transform: translate(0,7px)
+.popup-bg .ratings-title:before
+	content: url(images/selectedshops-r.png)
+	transform: translate(0,7px)
+.ratings-box
+	position: relative
+	border-radius: 5px
+	background-color: white
+	width: 800px
+	margin: 50px auto
+	height: 85%
+	overflow-y: auto
+.close,.popup-close
+	position: absolute
+	right: 50px
+	margin-top: -40px
+	cursor: pointer
+
+//like-button
+.news-page
+    .ratings-button
+        margin: 50 0 60
+        display: flex
+        justify-content: center
+        .dislike,.like
+            //position: relative
+            font-size: 30px
+            //width: 25px
+            //height: 30
+            text-align: center
+            //float: left
+            cursor: pointer
+            display: flex
+            align-items: center
+            i
+                //position: absolute
+                //left: 0
+                //right: -6
+                //top: 1
+                //transition: all 0.2s ease-in-out
+            //&:after
+                margin-left: 30px
+                font-size: $nf
+                transform: translate(0,5px)
+                display: block
+                content: ''
+        .dislike
+            //&:after
+                content: 'Bad'
+            &:hover
+                color: $gary
+        .like
+            margin-right: 50px
+            //&:after
+                content: 'Good'
+            &:hover
+                color: $red
+        .like-active
+            color: $red
+        .dislike-active
+            color: $gary
+        span
+            font-size: $nf
+            margin-left: 10px
+            //display: block
+            transform: translate(0,3px)
+.mobile-menu
+    display: none
+.morebook
+    display: none
+    text-decoration: underline
+.img-modal
+    text-align: center
+    padding: 30
+    .img-modal-box
+        display: inline-block;
+        position: relative
+    p
+        color: white
+    .popup-close
+        right: -20
+        margin-top: 0
+        cursor: pointer
+
+// unslider
+.selectedshops-box-768,.selectedshops-box-768 + nav,.selectedshops-box-480,.selectedshops-box-480 + nav,
+.news-box-768,.news-box-768 + nav,.news-box-480,.news-box-480 + nav,
+.rfq-box-768,.rfq-box-768 + nav,.rfq-box-480,.rfq-box-480 + nav,
+.expo-box-768,.expo-box-768 + nav,.expo-box-480,.expo-box-480 + nav,
+.partner-banner-1100,.partner-banner-1100 + nav,.partner-banner-768,.partner-banner-768 + nav,.partner-banner-480,.partner-banner-480 + nav
+    display: none
+    
+//
+//
+//
+//
+//
+//
+// RWD
+@media screen and (max-width:1100px)
+    .wrapper,.page-wrapper,header .headerbox,footer .footerbox,.tag-area .tagbox,.categories-area .categoriesbox
+        width: 960
+    .topbanner
+        height: 900
+        .bannerbox
+            padding-top: 300
+            .godown
+                margin-top: 100
+    .popup-bg
+        padding: 20
+        .ad-seach
+            width: 600
+            height: 90%
+            margin-top: 20
+            h3
+                margin: 0
+            table
+                td 
+                    width: 100%
+                    display: table
+                    padding: 0 0 20
+                    border-bottom: 1px solid #eeeeee
+                    select
+                        background-position: 95% center
+            .form-content
+                overflow-y: auto
+                height: 80%
+            .search-footer input[type=submit]
+                width: 100%
+            .close
+                right: 20
+                margin-top: -20
+    .ex .content-left li.ex-card, .ex .content-left li.ex-card > .link
+        height: 250
+    .partner-banner,.partner-banner + nav,.partner-banner-768,.partner-banner-768 + nav,.partner-banner-480,.partner-banner-480 + nav
+        display: none
+    .partner-banner-1100,.partner-banner-1100 + nav
+        display: block
+    .partner-area .partnerbox
+        width: auto
+        li
+            +grid-768
+            grid-template-rows: 120px
+            img
+                height: 100%
+                object-fit: cover
+    .categories-area
+        padding: 20
+        .categoriesbox
+            .categories-block
+                padding: 20 0
+                ul
+                    columns: 3
+            .list-block
+                margin-top: 3
+                padding: 15 0
+    .partner-area
+        padding: 50 20
+
+@media screen and (max-width:768px)
+    header .headerbox,
+    .topbanner .bannerbox,
+    .searchbox input,.tag-area .tagbox,
+    .categories-area .categoriesbox,
+    footer .footerbox
+        width: auto
+    header
+        .headerbox
+            height: 50
+            padding: 0 20
+            a.logo
+                left: 20
+            ul
+                width: 100%
+                right: 0
+                top: 40
+                background-color: white
+                position: absolute
+                display: none
+                //height: auto
+                box-shadow: 3px 0 5px rgba(0,0,0,0.1)
+                li
+                    padding: 15 20
+                    display: inherit
+                    margin-left: 0
+                    border-bottom: 1px solid #eeeeee
+    .topbanner .bannerbox
+        padding: 100 20 0
+    .godown
+        margin-top: 50
+    .searchbox
+        select
+            border-radius: 5px
+            margin: auto
+            width: 100%
+            background-position: 95% center;
+        input
+            width: 100%
+            margin-top: 10
+            background-position: 95% center
+        .ad-search
+            margin: 15 auto
+    .tag-area .tagbox
+        padding: 20    
+    .popup-bg
+        padding: 20
+        .ad-seach
+            width: auto
+            height: 90%
+            margin-top: 20
+            h3
+                margin: 0
+            table
+                td 
+                    width: 100%
+                    display: table
+                    padding: 0 0 20
+                    border-bottom: 1px solid #eeeeee
+            .form-content
+                overflow-y: auto
+                height: 280px
+            .search-footer input[type=submit]
+                width: 100%
+            .close
+                right: 20
+                margin-top: -20
+        .notice
+            margin-top: 100
+            width: auto
+            h3
+                margin-top: 20
+            p
+                margin: 30 0
+                overflow-y: auto
+            .close
+                margin: 20 auto 20
+                width: 100%
+    .categories-area
+        .categoriesbox
+            .categories-block
+                ul
+                    columns: 1
+    .wrapper
+        width: auto
+        padding: 0 20
+        .showbox 
+            .selectedshops-box, .showbox .expo-box
+                >li
+                    +grid-768
+            .expo-box
+                >li
+                    +grid-768
+                    grid-template-rows: auto
+            .ebook-box
+                grid-template-columns: 1fr
+                grid-template-rows: 300
+                .book-top .newicon
+                    left: 50%
+                    transform: translate(-160%,0)
+        .news-box,.rfq-box,.expo-box
+            >li
+                +grid-768
+                grid-template-rows: auto
+    .book-list
+        display: none
+        .partnerbox
+            width: auto
+            li
+                grid-template-columns: 1fr 1fr
+                grid-template-rows: auto
+        .book-list
+            display: none
+    footer
+        height: auto
+        .footerbox
+            >img
+                width: 50%
+            padding: 50 20
+            grid-template-columns: 1fr
+            grid-template-rows: 100 300
+            align-items: center
+            justify-items: center
+            p
+                margin-top: 30
+                text-align: center
+            .footer-list ul
+                margin-left: 20
+    .chatbox, .chatbox-button
+        right: 30
+        bottom: 30
+    .morebook
+        display: block
+    .mobile-menu
+        display: block
+
+    //page
+    .page-wrapper,.search-page .searchbox
+        width: auto
+    .page-wrapper
+        padding: 20
+        margin-bottom: 100
+        h3:after
+            display: none
+    .page-banner
+        padding: 0 20
+        height: auto
+    .search-page 
+        padding: 20 20 50
+    content.rfq .endlessscroll-box
+        justify-content: flex-start
+        .rfq-card
+            margin: 6
+            flex-basis: 31.5%
+    .notice form
+        float: inherit
+        display: flex
+        select
+            flex-basis: 50%
+            background-position: 95% center
+            &:last-child
+                margin-left: 10
+        label
+            display: none
+    .book-box
+        .button-box 
+            img
+                margin: 70 0 0
+            button
+                width: 100%
+                margin: 10 0 0
+        img
+            margin: 0
+    .book-list
+        flex-wrap: wrap
+        a
+            flex-basis: 48%
+    .news
+        flex-wrap: wrap
+        .content-left,.content-right
+            flex-basis: 100%
+        .content-right
+            padding: 0
+            text-align: center
+            //border-bottom: 1px solid #eeeeee
+            order: 1
+            display: none
+        .content-left li.news-card,.content-left li.news-card .link
+            display: block
+            height: auto
+            padding-bottom: 10
+        .content-left
+            width: 100%
+            order: 2
+            .img-box
+                height: 150
+            .card-box .info
+                li
+                    position: relative
+                    width: 250
+                    +etc
+                    text-overflow: ellipsis
+                    display: block
+                    padding-left: 30
+                    &:last-child
+                        margin-top: 5
+                    &:before
+                        left: 0
+                        top: 5
+                        position: absolute
+            .card-box ul.rate
+                float: inherit
+                margin-top: 10
+    .ex .content-left li.ex-card
+        height: auto
+        >.link
+            .ex-info
+                column-count: 1
+                li
+                    width: 100%
+                    display: block
+            .card-box ul.info-view
+                float: inherit
+                margin-top: 20
+                li a
+                    display: block      
+    form.contact
+        width: 450
+        input
+            width: 100%
+    .fixed
+        position: initial
+        .fixed-menu
+            display: flex
+            justify-content: space-between
+            li
+                flex-basis: 32.5%
+    .product-name
+        margin-top: 50
+    .breadcrumb
+        float: initial
+        margin-top: 0
+        li
+            margin-top: 10
+    .rfq-page 
+        .user-date
+            position: initial
+            text-align: center
+            margin-top: 50
+            .user-card
+                box-shadow: 0 0 10px rgba(0,0,0,0.2)
+                width: 100%
+                left: 0
+                text-align: left
+        .need 
+            text-align: left
+            h4,p
+                margin: 0
+            h4
+                display: block
+            p
+                padding-left: 28
+        .shop-img
+            height: 250
+    .shop-info-page ul.line-box li
+        margin: 0
+    .comments
+        font-size: $sf
+        .user-comment
+            >.user-img-box
+                display: initial
+            .massage-box ul.meetbox
+                .user-enter
+                    .upimg
+                        bottom: 15
+                    textarea
+                        font-size: $sf
+                        min-height: 100
+                .comment-show
+                    .user-enter
+                        width: 100%
+                    .user-img-box-area
+                        flex-basis: 0
+                    .user-card
+                        left: 0
+                        width: 100%
+                        border-radius: 0
+                    .user-massage
+                        flex-basis: 100%
+                        p
+                            line-height: $bf
+    .ex .content-left li.ex-card > .link .img-box
+        flex-basis: 100%
+        img
+            height: auto
+    .ex-album .content-left .album-photo li
+        flex-basis: 33.3333333%
+    form.contact
+        .recaptcha-box
+            margin-top: 20
+        .list-box
+            display: inherit
+                width: 100%
+            label
+                width: 100%
+                display: block
+                text-align: left
+    .shop-name
+        margin-top: 50
+    .pupbox
+        width: auto
+        .padding-lr
+            .flexbox
+                select,div
+                    flex-basis: 100%
+                    background-position: 95% center
+                label
+                    display: block
+                    text-align: left
+    .news .content-left ul,.ex .content-left ul
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        li.ex-card,li.news-card
+            margin: 6
+            flex-basis: 48%
+        li.ex-photo-card
+            margin: 0
+            flex-basis: 100%
+            >.link
+                margin-bottom: 0
+                .ex-info
+                    column-count: 2
+        li.ex-photo-card > .link .img-box 
+            height: 250
+            img
+                width: 100%
+                transform: translate(0,-20%)
+    .exhibitions-page
+        .ex-table-info
+            margin-top: 20
+        .ex-show
+            flex-wrap: wrap
+            .show1,.show2
+                table tr td
+                    display: block
+                    border: none
+                    &:first-child
+                        width: auto
+                        text-align: left
+        .ex-table-info tr td
+            border-bottom: 1px solid #eeeeee
+            display: block
+            padding: 20 20
+            width: 100%
+            p
+                width: 100%
+        .ex-table-info tr:last-child td:last-child
+            border-bottom: none       
+    .certif-list li
+        margin-top: 10
+    .ex-table-info-area td
+        display: block
+    .shop-info-page
+        .company-info td
+            display: block
+            padding: 20 0
+            width: 100%
+        .company-info p
+            width: 100%
+        .ex-table-info td:before
+            width: 100%
+            text-align: left
+            margin: 10 0
+        .ex-table-info img
+            margin: 10 10 0 0
+    .shop-mainproducts .partner-area li .img-box
+        width: auto
+    .product-page .product-show
+        height: 100
+        li
+            flex-basis: 25%
+    .shop-ex-page .booking-box      
+        flex-wrap: wrap
+        .ex-info,.line-box
+            flex-basis: 100%
+
+    // unslider  
+    .selectedshops-box-normal,.selectedshops-box-normal + nav,.selectedshops-box-480,.selectedshops-box-480 + nav,
+    .news-box-normal,.news-box-normal + nav,.news-box-480,.news-box-480 + nav,
+    .rfq-box-normal,.rfq-box-normal + nav,.rfq-box-480,.rfq-box-480 + nav,
+    .expo-box-normal,.expo-box-normal + nav,.expo-box-480,.expo-box-480 + nav,
+    .partner-banner,.partner-banner + nav,.partner-banner-1100,.partner-banner-1100 + nav,.partner-banner-480,.partner-banner-480 + nav
+        display: none
+    .selectedshops-box-768,.selectedshops-box-768 + nav,
+    .news-box-768,.news-box-768 + nav,
+    .rfq-box-768,.rfq-box-768 + nav,
+    .expo-box-768,.expo-box-768 + nav,
+    .partner-banner-768,.partner-banner-768 + nav
+        display: block
+
+    
+
+@media screen and (max-width:480px)
+    .topbanner
+        height: 700
+    .book-box .bookimg
+        width: auto
+    .news .content-left ul,.ex .content-left ul
+        li
+            flex-basis: 100%
+    content.rfq .endlessscroll-box .rfq-card
+        flex-basis: 100%
+    .rfq-page .shop-img
+        height: 150
+    .product-page .product-show
+        height: 50
+    .popup-bg .ad-seach .form-content
+        height: 60%
+    form.contact 
+        width: auto
+    .news .content-left ul,.ex .content-left ul
+        display: flex
+    ul.tab-page
+        padding: 20 0
+        margin: 0
+        height: auto
+        border: none
+        li
+            border: 1px solid #eeeeee
+            border-radius: 5px
+            margin-bottom: 10
+    .partner-area
+        .partnerbox
+            li
+                grid-template-columns: 1fr
+                grid-template-rows: 150
+        .book-list
+            display: none
+    .exhibitions-page 
+        .ex-show
+            .show1,.show2
+                flex-basis: 100%
+        .ex-table-info td:before
+            width: 100%
+    .wrapper
+        .showbox 
+            .selectedshops-box
+                >li
+                    +grid-480
+                    .card .masking ul
+                        padding-top: 60
+            .expo-box
+                >li
+                    grid-template-columns: 1fr
+                    grid-template-rows: 230
+            .ebook-box
+                grid-template-columns: 1fr
+                grid-template-rows: 300
+        .news-box,.rfq-box,.expo-box
+            >li
+                grid-template-columns: 1fr
+                grid-template-rows: 265
+
+    //page
+    .shop-info-page .ex-table-info img
+            width: auto
+            margin: 10 10 0 0
+    .shop-ex-page
+        .user-add
+            margin: 0
+        .ex-info-date
+            columns: 1
+        .booking-box
+            .line-box
+                li
+                    width: 100%
+                    margin: 10 0 0 0
+                    text-align: center
+    .fixed .fixed-menu
+        flex-wrap: wrap
+        li
+            flex-basis: 100%
+    .shop-products .notice form
+        display: flex
+        float: initial
+    .pupbox
+        width: auto
+        .padding-lr
+            ul
+                display: initial
+                li
+                    width: 100%
+                    margin-top: 10
+            .social-box .fb
+                background-position: 5px center
+            .flexbox
+                flex-wrap: wrap
+                select,div
+                    flex-basis: 100%
+                    margin-bottom: 10
+                    margin-right: 0
+                .phonebox
+                    flex-wrap: wrap
+                    .phone-code
+                        flex-basis: 100%
+                        border-radius: 5px
+                    .enter-code
+                        margin-right: 0
+                        border-radius: 5px 5px 0 0
+                    .get-code
+                        border-radius: 0 0 5px 5px
+                    input
+                        flex-basis: 100%
+                        border-radius: 5px
+    .last-page .flexbox .last,.last-page .flexbox .first
+        flex-basis: 100%
+        margin-right: 0
+    .news .content-left ul,.ex .content-left ul
+        li.ex-photo-card
+            >.link
+                .ex-info
+                    column-count: 1
+                .img-box
+                    height: auto
+                    img
+                        transform: translate(0,0)
+        li.ex-card,li.news-card
+            margin: 6 0
+            flex-basis: 100%
+    .comments
+        border: none
+        padding: 0
+        .user-comment
+            >.user-img-box
+                display: none
+            .massage-box
+                flex-basis: 100%
+    .notice form
+        flex-wrap: wrap
+        select
+            flex-basis: 100%
+            &:last-child
+                margin: 10 0 0 0
+        label
+            display: none
+
+    //chatbox
+    .chatbox
+        width: 100%
+        height: 100%
+        z-index: 100000
+        right: 0
+        bottom: 0
+        border-radius: 0
+        .chatbox-right
+            position: relative
+            width: 100%
+            .active-chat
+                padding: 20
+                height: 65%
+                .chat .bubble
+                    max-width: 100%
+            .write
+                font-size: $sf
+                ul
+                    margin: 10px 0
+                    text-align: center
+                    .function-call
+                        position: inherit
+                        .function-list
+                            //overflow: hidden
+                            //right: 0
+                            //width: 95%
+                            //position: absolute
+                            bottom: 0
+                            transform: translate(-50%,-17%)
+                            text-align: left
+                .write-box
+                    position: relative
+                    .enter-img
+                        bottom: 15
+                        right: 20
+                        top: inherit
+                    textarea
+                        width: 100%
+                        height: 100px
+        .chatbox-left
+            left: -200
+            transition: $anim
+            position: absolute
+            z-index: 1000
+            height: 100%
+            background-color: white 
+            box-shadow: 3px 0px 5px rgba(0,0,0,0.1)
+            .search-user-bar
+                display: flex
+                align-items: center
+                img
+                    margin-right: 10 
+            ul
+                border: none
+                li .talk-info p
+                    text-overflow: ellipsis
+                    display: block
+        .mobile-userlist
+            position: absolute
+            left: 20
+            margin-top: 12
+    .mobile-userlist,.list-close
+        display: block
+
+    //ratings-page
+    .popup-bg h3
+        margin: 0
+    .close, .popup-close
+        margin-top: -20
+        right: 20
+    .ratings-page .ratings-box
+        width: auto
+        height: 100%
+        margin-top: 0
+        overflow-y: auto
+        .ratings-list
+            .user-img-box
+            .user-ratings
+                flex-basis: 65%;
+                h4
+                    +etc
+                    width: 100px
+                    display: inline-block
+                    text-overflow: ellipsis
+                .u-name:after
+                    display: inline-block;
+                    transform: translate(-50%,-60%)
+        .padding-box .ratings-change
+            position: initial
+            margin-top: 20
+            label
+                display: none
+            select
+                width: 100%
+    .rating-title
+        margin: 0
+
+    // unslider   
+    .selectedshops-box-normal,.selectedshops-box-normal + nav,.selectedshops-box-768,.selectedshops-box-768 + nav,
+    .news-box-normal,.news-box-normal + nav,.news-box-768,.news-box-768 + nav,
+    .rfq-box-normal,.rfq-box-normal + nav,.rfq-box-768,.rfq-box-768 + nav,
+    .expo-box-normal,.expo-box-normal + nav,.expo-box-768,.expo-box-768 + nav,
+    .partner-banner,.partner-banner + nav,.partner-banner-1100,.partner-banner-1100 + nav,.partner-banner-768,.partner-banner-768 + nav
+        display: none
+    .selectedshops-box-480,.selectedshops-box-480 + nav,
+    .news-box-480,.news-box-480 + nav,
+    .rfq-box-480,.rfq-box-480 + nav,
+    .expo-box-480,.expo-box-480 + nav,
+    .partner-banner-480,.partner-banner-480 + nav
+        display: block
+    

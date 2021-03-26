@@ -1,0 +1,2099 @@
+//sets
+$bg-w: white
+$box-padding-lr: 0 20px
+$box-padding-td: 20px 0px
+$box-padding-all: 20px
+$area-td: 50px 0
+$anim: all 0.2s ease 0s
+$anim-no: all 0s ease 0s
+$pink: #e85445
+$gary: #7d7d7d
+$gary2: #fcfcfc
+$copy: #ffebc3
+$blue: #00a0e9
+$blue2: #7ecef4
+$blue-b: #35495e
+$blue-b2: #005982
+$red: #e74c3c
+$purple: #a4005b 
+$coco: #cfa150
+$black: #362e2b
+$yellow: #f39c12
+$og: #ff7a17
+$sf: 12px
+$bf: 16px
+$nf: 14px
+@mixin box-cover
+    width: 100%
+    height: 100%
+@mixin max-w-box
+    margin: 0 auto
+    width: 1100px
+@mixin botton-style-1
+    border: none
+    padding: 13px 25px
+    border-radius: 5px
+@mixin input-style-1
+    border: 1px solid #eeeeee
+    padding: 13px 20px
+    border-radius: 5px
+@mixin input-style-2
+    padding: 13px 20px
+    border-radius: 5px
+@mixin select-style
+    appearance: none
+    background: url(images/right.png) no-repeat
+    background-color: $bg-w
+@mixin center
+    position: absolute
+    left: 50%
+    transform: translate(-50%,0)
+@mixin grid-1
+    display: grid
+    grid-gap: 15px
+    grid-template-columns: 1fr 1fr 1fr 1fr
+    grid-template-rows: 145px 145px
+@mixin card-1
+    border: 1px solid #eeeeee
+    border-radius: 5px
+    overflow: hidden
+@mixin title-img
+    display: inline-block
+    margin-right: 10px
+    transform: translate(0,3px)
+@mixin last-img
+    display: inline-block
+    margin-left: 10px
+    transform: translate(0,3px)
+@mixin flex-box
+    display: flex
+    align-items: center
+    justify-content: space-around
+    flex-wrap: wrap
+@mixin flex-box-2
+    display: flex
+    justify-content: space-around
+@mixin flex-box-3
+    display: flex
+    align-items: center
+@mixin etc
+	overflow : hidden; 
+	text-overflow : ellipsis;
+	//white-space : nowrap;
+	display: -webkit-box; 
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+@mixin img-box-1
+    overflow: hidden
+    height: 150px
+@mixin img-box-2
+    overflow: hidden
+    height: 120px
+@mixin img-box-3
+    overflow: hidden
+@mixin user-img-box
+    width: 65px
+    height: 65px
+    text-align: center
+    border: 1px solid #eeeeee
+    border-radius: 99px
+    overflow: hidden
+@mixin user-img-box2
+    width: 40px
+    height: 40px
+    text-align: center
+    border: 1px solid #eeeeee
+    border-radius: 99px
+    overflow: hidden
+
+    
+//標籤定義
+//字型
+//@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css)
+
+*
+    box-sizing: border-box
+    outline: inherit
+a
+    text-decoration: none
+    color: inherit
+a:hover,
+.anim:hover
+    opacity: 0.5
+a,
+a:hover,
+.anim,
+.anim:hover,
+.anim2,
+.anim2:hover
+    transition: $anim
+.page-tab a,.page-tab a:hover
+    transition: $anim-no   
+p
+    line-height: 24px
+::before
+    +title-img
+html,
+body,
+textarea
+    margin: 0
+    padding: 0
+    height: 100%
+html,
+body,
+input,
+select,
+textarea,
+button,
+table
+    font-size: 14px
+    // font-family: 微軟正黑體
+    font-family: 'Noto Sans CJK TC'
+    font-weight: normal
+
+button:focus
+    outline: none !important
+textarea
+    width: 100%
+    max-height: 200px
+    resize: none
+    font-size: 14.5px
+img
+    max-width: 100%
+img[src=""]
+    display: none
+ul,ol
+    padding-left: 0
+li
+    list-style-type: none
+.enter-text 
+    ul,ol
+        padding: 0 25px
+    li
+        list-style-type: inherit
+label
+    margin-right: 15px
+    color: $gary
+input[type=checkbox],input[type=radio]
+    position: absolute
+    opacity: 0
+    &+label:before
+        width: 15px
+        height: 15px
+        border: 1px solid #eeeeee
+        border-radius: 5px 
+        display: inline-block
+        content: ' '
+    &:checked+label:before
+        background: url(images/click-v.png) no-repeat center center
+input[type=radio]
+    &+label:before
+        border-radius: 99px
+    &:checked+label:before
+        background: url(images/dot.png) no-repeat center center
+.upimg
+    left: 15px
+    bottom: 10px
+    z-index: 100
+    position: absolute
+    & label,input
+        display: inline-block
+    & #file-name
+        transform: translate(10px,-4px)
+    & input[type=file]
+        position: absolute
+        left: 0
+        bottom: 0
+        padding: 0
+        width: 20px
+        height: 25px
+        overflow: hidden
+        opacity: 0
+        z-index: 100
+.padding-box
+	padding: 20px
+input,
+select,
+textarea
+    +input-style-1
+select
+    +select-style
+.button-box
+    position: relative
+    margin: $area-td
+    text-align: center
+button,
+.button-box a
+    cursor: pointer
+    color: white
+    +botton-style-1
+input[type=submit],input[type=button]
+    cursor: pointer
+    border: none
+hr
+    margin: 20px 0
+    border: none
+    border-bottom: 1px solid #eeeeee
+.img-box img
+    height: 100%
+    object-fit: cover
+.user-img-box img
+    height: 95%
+    object-fit: scale-down
+::placeholder
+    color: #cccccc
+
+//before block
+.tag:before
+    content: url(images/tag-icon.png)
+    transform: translate(0,0)
+.mark:before
+    content: url(images/mark.png)
+    transform: translate(0,0)
+.date:before
+    content: url(images/date.png)
+    transform: translate(0,0)
+.edit:before
+    content: url(images/edit.png)
+    transform: translate(0,1px)
+.card-close:before
+    content: url(images/card-close.png)
+.card-close2:before
+    width: 13px
+    height: 13px
+    transform: translate(0,2px)
+    content: url(images/del-b.svg)
+.explanner:before,.expo:before
+    content: url(images/ExhibitionPlanner.png)
+.favourite:before
+    content: url(images/Favourite.png)
+.shop:before,.product:before
+    content: url(images/Shop2.png)
+.message:before
+    content: url(images/mail.png)
+.rfq:before
+    content: url(images/rfq2.png)
+    transform: translate(0,5px)
+.site:before
+    content: url(images/site.png)
+    transform: translate(0,0)
+.shop-nu:before
+    content: url(images/shop.png)
+    transform: translate(0,2px)
+.change:before
+    content: url(images/change.png)
+    transform: translate(0,6px)
+.warn:before
+    transform: translate(0,6px)
+    content: url(images/warn.png)
+.back:before
+    content: url(images/back.png)
+.close-rfq:before
+    content: url(images/close-rfq.png)
+.shop-a:before
+    content: url(images/user-gary3.png)
+.business:before
+    content: url(images/cash.png)
+.up:before
+    content: url(images/up.png)
+.popup-add-admin-form .addadmin:before
+    content: url(images/addadmin.png)
+    
+//user-admin
+.user-admin
+	+flex-box-2
+	min-height: 100%
+	.content-left
+		color: white
+		text-align: right
+		flex-basis: 20%
+		.fixed
+			position: fixed
+			height: 100%
+			width: 20%
+			background: url(images/user-bg.jpg) center center
+			z-index: 1001
+		.user-date
+			display: inline-block
+			text-align: center
+			padding: 20px
+			.user-edit
+				//cursor: pointer
+				//text-decoration: underline
+			a
+				display: inline-block
+				margin-bottom: 20px
+			p
+				margin: 20px 0 0 0
+			.user-img-box
+				display: inline-block
+				+user-img-box
+				background-color: white
+				width: 120px
+				height: 120px
+			.rate
+				+flex-box-2
+				margin-top: 20px
+				div
+					flex-basis: 50%
+					i
+						font-size: 20px
+						margin: 0 0 10px 10px
+					.fa-thumbs-up
+						color: $red
+					.fa-thumbs-down
+						color: $gary
+				img
+					margin-bottom: 5px
+	.content-right
+		flex-basis: 80%
+		background-color: $gary2
+		.page-tab
+			margin: 0
+			border-bottom: 1px solid #eeeeee
+			background-color: white
+			transform: translate(0,-4px)
+			li
+				display: inline-block
+				border-right: 1px solid #eeeeee
+				&:not(:first-child)
+					margin-left: -3.5px
+				//&:last-child
+					border-right: none
+				a
+					display: block
+					padding: 10px 20px
+					&:hover
+						opacity: 1
+				.active
+					color: $pink
+					background-color: $gary2
+					transform: translate(0,1px)
+					position: relative
+					z-index: -1
+		.function-botton
+			margin: 30px 0
+			a,form
+				display: inline-block
+			form
+				float: right
+				transform: translate(0,-1px)
+			select
+				width: 150px
+				background-position: 85% center
+			a
+				display: inline-block
+				+botton-style-1
+				background-color: $blue
+				color: white
+				&:before
+					content: url(images/add.png)
+					transform: translate(0,2px)
+		.wrapper
+			text-align: left
+			padding: 0 20px
+		.card-list
+			>li
+				position: relative
+				+card-1
+				display: inline-block
+				margin: 0 10px 10px 0
+				width: 220px
+				background-color: white
+				.index-cardimg img
+					height: auto
+				.mask
+					position: absolute
+					left: -100%
+					width: 100%
+					height: 100%
+					padding: 50px 0
+					background-color: rgba(0, 0, 0, 0.8)
+					color: white
+					text-align: center
+					z-index: 999
+					li
+						margin: 5px 0
+						&:first-child
+							color: $gary
+						&:last-child a
+							background-color: $red
+					a
+						display: inline-block
+						padding: 10px 15px
+						width: 120px
+						border-radius: 5px
+						background-color: white
+						&:hover
+							opacity: 1
+				.card-box
+					padding: 20px
+					h4
+						+etc
+						margin-top: 0
+					li
+						margin: 3px 0
+						color: $pink
+					.tag
+						color: $gary
+				hr
+					margin: 0
+				.action
+					padding: 10px 0
+					text-align: center
+					li
+						display: inline-block
+						&:first-child
+							color: $blue
+							margin-right: 30px
+						&:last-child
+							color: $blue-b
+				.push
+					li:first-child
+						margin-right: 0
+						color: $red
+						cursor: pointer
+				.timeup
+					li:first-child
+						color: $gary
+						cursor: auto
+			.end
+				ul.action li
+					color: $red
+					margin: 0
+				&:hover .mask
+					left: 0
+content
+    max-width: 1000px
+    display: block
+//exp-page
+.user-admin
+	.exp-page
+		.function-botton
+			//text-align: right
+			form
+				float: right
+		.card-list>li
+			width: 100%
+			.ex-info
+				display: flex
+				align-items: center
+				.card-box
+					flex-basis: 80%
+					h4
+						-webkit-line-clamp: 1
+						margin-bottom: 5px
+					p
+						margin-top: 0
+						color: $gary
+					ul
+						margin-top: 20px
+						li
+							display: inline-block
+							margin-right: 25px
+				.card-function
+					flex-basis: 20%
+					text-align: center
+					transform: translate(0,2px)
+					.call007
+						background-color: $purple
+					.edit-expo
+						background-color: $blue
+					.del
+						background-color: $red
+						img
+							width: 18px
+							height: auto
+					li
+						width: 40px
+						height: 40px
+						border-radius: 5px 
+						display: inline-block
+						position: relative
+						cursor: pointer
+						a
+							display: block
+							width: 100%
+							height: 100%
+						img
+							position: absolute
+							right: 50%
+							top: 50%
+							transform: translate(50%,-50%)
+		.guests
+			padding: 20px
+			li
+				display: inline-block
+				margin-right: 5px
+			.img-box
+				+user-img-box2
+				width: 50px
+				height: 50px
+				text-align: center
+				img
+					object-fit: scale-down
+					object-position: center
+		.events
+			padding: 0 20px 20px 20px
+			text-align: right
+			p
+				margin: 0
+				strong
+					color: $pink
+
+////favourite-page
+//.favourite-page
+//    p
+//        color: $gary
+//    .user-card
+//        .img-box
+//            flex-basis: 10%
+//            height: 30px
+//            text-align: center
+//        .card-box
+//            flex-basis: 70%
+//        .line-favourite
+//            background-color: #00a0e9
+//            img
+//                width: 20px
+//                
+////shop-page
+//.user-admin
+//    .shop-page
+//        .wrapper
+//            padding-top: 25%
+//            text-align: center
+//        .open-shop
+//            +input-style-2
+//            display: inline-block
+//            background-color: $blue
+//            color: white
+//            cursor: pointer
+//            &:before
+//                content: url(images/add.png)
+//shop-open-page
+//.user-admin
+//    .shop-open-page
+//        .shop-info
+//            +input-style-1
+//            background-color: white
+//            margin: 20px
+//            padding: 20px
+//            .shop-box
+//                +flex-box
+//                align-items: flex-start
+//                flex-wrap: nowrap
+//                .shop-left
+//                    flex-basis: 20%
+//                    margin-right: 20px
+//                    text-align: center
+//                    .img-box
+//                        +user-img-box
+//                        margin: 0 auto
+//                        width: 150px
+//                        height: 150px
+//                    p
+//                        color: $blue
+//                        small
+//                            margin-right: 10px
+//                            color: $gary
+//                .shop-right
+//                    flex-basis: 80%
+//                    >p
+//                        color: $gary
+//                    .shopdate
+//                        color: $pink
+//                        b
+//                            color: $gary
+//                            margin-right: 10px
+//                        li
+//                            display: inline-block
+//                            margin-right: 15px
+//                            a
+//                                display: inline-block
+//                                padding: 5px 15px
+//                                border-radius: 5px
+//                                background-color: $coco
+//                                color: white
+//                                margin-left: 20px
+//                    .shop-user
+//                        margin-top: 50px
+//                        .img-box
+//                            +user-img-box
+//                            display: inline-block
+//                            vertical-align: middle
+//                        li
+//                            &:before
+//                                width: 80px
+//                                text-align: right
+//                            &:first-child:before
+//                                content: 'SuperAdmin'
+//                            &:last-child:before
+//                                content: 'Admin'
+//            h4,.shop-function
+//                display: inline-block
+//            h4
+//                color: $gary
+//                margin-left: 15px
+//            .shop-function
+//                margin-top: 10px
+//                float: right
+//                li
+//                    display: inline-block
+//                    color: white
+//                    cursor: pointer
+//                    +input-style-2
+//                    &:first-child
+//                        margin-right: 10px
+//                        background-color: $blue
+//                        &:before
+//                            content: url(images/enter-shop.png)
+//                    &:last-child
+//                        background-color: $red
+//                        &:before
+//                            width: 13px
+//                            height: 13px
+//                            content: url(images/del.svg)
+
+//message
+.page-tab
+    //li:nth-child(6)
+        border-left: 1px solid #eeeeee
+        float: right
+    a.message
+        position: relative
+    small
+        position: absolute
+        z-index: 100
+        left: 42px
+        top: 5px
+        background-color: red
+        width: 18px
+        height: 18px
+        border-radius: 99px
+        color: white
+        font-size: 10px
+        text-align: center
+.user-admin .content-right 
+    .message-page
+        background-color: white
+        margin: 20px
+        +input-style-1
+        padding: 0
+        ul
+            margin: 0
+            li
+                padding: 20px 0
+                +flex-box
+                flex-wrap: nowrap
+                align-items: flex-start
+                border-bottom: 1px solid #eeeeee
+                cursor: pointer
+                &:hover
+                    background-color: rgba(238, 238, 238, 0.3)
+                .message-img
+                    width: 110px
+                    text-align: right
+                    .user-img-box
+                        display: inline-block
+                        margin-right: 15px
+                        +user-img-box2
+                        background-color: white
+                .message-box
+                    flex-basis: 100%
+                    padding-right: 20px
+                    h4
+                        margin: 10px 0
+                        line-height: 24px
+                        position: relative
+                        &:after
+                            content: 'Unread'
+                            background-color: $og
+                            color: white
+                            margin-left: 15px
+                            padding: 5px 15px 
+                            border-radius: 5px
+                            font-size: $sf
+                    p
+                        +etc
+                        color: $gary
+                    span
+                        color: $pink
+                        
+//Business Opportunity
+.user-admin .content-right .message-page ul 
+    .business-list
+        cursor: auto
+        &:hover
+            background-color: inherit
+        .message-img
+            width: 140px
+        .message-box
+            h4:after
+                display: none
+        .dwload
+            +input-style-2
+            width: 240px
+            background-color: $blue-b2
+            margin-right: 20px
+            color: white
+            &:before
+                content: url(images/download.png)
+            
+    
+//add-rfq
+.user-admin .content-right .addrfq-page 
+	.botton-box
+		margin: 30px 0
+		div
+			display: inline-block
+			cursor: pointer
+		.back
+			color: $gary
+			float: right
+	>form
+		background-color: white
+		margin: 20px 0
+		+input-style-1
+		//box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1)
+		padding: 0
+		margin-bottom: 200px
+		ul
+			margin: 0
+			li
+				padding: 20px
+				display: flex
+				flex-wrap: nowrap
+				label
+					width: 140px
+					text-align: right
+				input,select,textarea,ul,.enter-text,.timebox,.addressbox
+					border: none
+					width: 100%
+				textarea
+					padding-top: 0
+				select
+					background-position: 98% center
+				textarea
+					min-height: 300px
+				.main-products
+					flex-basis: 100%
+					.main-products-box
+						display: grid
+						grid-template-columns: repeat(5,1fr)
+						grid-gap: 10px
+						input
+							border: 1px solid #eeeeee
+						&+p
+							color: $pink
+							margin-bottom: 0
+				.photo-list
+					width: 100%
+					display: flex
+					height: 100px
+					li
+						+input-style-1
+						flex-basis: 20%
+						margin-right: 10px
+						align-items: center
+						padding: 0
+						background: url(images/default-photo.png) no-repeat center
+						position: relative
+						.img-up-box
+							width: 100%
+							height: 100%
+							overflow: hidden
+							position: relative
+							border-radius: 5px
+							img
+								position: absolute
+								top: 50%
+								transform: translate(0,-50%)
+								//height: 100%
+						input
+							opacity: 0
+							position: absolute
+							z-index: 10
+							width: 100%
+							height: 100%
+				.certificationsl-list
+					li
+						display: inline-block
+						border: none
+						padding: 0 0 20px 0 
+						width: 150px
+						input
+							width: auto
+				.enter-text
+					border: 1px soild #eeeeee
+					.note-toolbar li
+						padding: 3px
+						border: none
+						display: list-item
+					.note-editable
+						li
+							display: list-item
+							padding: 5px
+							border: none
+					span:before,i:before
+						transform: translate(0,0)
+					p
+						margin: 0
+			li:not(:last-child)
+				align-items: center
+				border-bottom: 1px solid #eeeeee
+			li:nth-child(8)
+				padding-bottom: 0
+			li:last-child,li:nth-child(2),li:nth-child(8)
+				align-items: flex-start
+	.formfooter
+		padding: 0 20px 20px 20px
+		text-align: right
+		input[type=submit]
+			background-color: $coco
+			color: white
+			width: 150px
+.clear
+    width: 15px
+    height: 15px
+    border-radius: 99px
+    position: absolute
+    right: -5px
+    top: -5px
+    cursor: pointer
+    background: url(images/delete.png) no-repeat center center
+    background-color: red
+    z-index: 100
+    display: none
+.clear2
+    display: block
+    
+//add-expo
+.ui-datepicker .ui-datepicker-title select
+    margin-right: 5px
+.ui-datepicker-month,.ui-datepicker-year
+    border: none
+    padding: 5px
+    background-position: 90% center
+.timebox,.addressbox
+    display: flex
+    align-items: center
+.add-expo
+    .content-right 
+        .addrfq-page > form 
+            ul 
+                li:nth-child(2),li:nth-child(5)
+                    align-items: center
+                li:nth-child(5)
+                    padding-bottom: 0
+
+//Company Profile
+.ui-widget.ui-widget-content,.ui-widget-header
+    border: none
+.ui-widget-header
+    font-weight: normal
+    background: #eeeeee
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover
+    border: none
+    background: #dadada url(images/ui-bg_glass_75_dadada_1x400.png)
+    background-position: center center
+    color: #212121
+.ui-datepicker
+	padding: 0
+    padding: 0
+	.ui-datepicker-title
+		margin: auto
+		line-height: 1em
+	.ui-datepicker-prev-hover
+    	left: 2px
+	.ui-datepicker-next-hover
+		right: 2px
+	.ui-datepicker-prev-hover,.ui-datepicker-next-hover
+		top: 2px 
+.addzone
+    width: 100%
+    .addField
+        margin-top: 20px
+    .enter-zone
+        +flex-box-3
+.companypProfile-page .content-right .addrfq-page
+	.branches-footer
+		padding-top: 20px
+	>form
+		margin-bottom: 50px
+		.branches-box
+			li:nth-child(3),li:nth-child(4)
+				align-items: center
+			>li:not(:first-child)
+				background-color: rgba(238, 238, 238, 0.3);
+			.cp-info2,li
+				background-color: white
+		.shrink li:not(:first-child)
+			display: none
+		.branches-box li
+			border-bottom: 1px solid #eeeeee
+		ul li
+			.certificationsl-list li
+				width: 170px
+				text-align: left
+			textarea
+				min-height: 100px
+				max-height: 100px
+			&:nth-child(1),&:nth-child(3),&:nth-child(4),&:nth-child(6),&:nth-child(7)
+				align-items: flex-start
+			&:nth-child(2)
+				align-items: center
+			.cp-list
+				width: 100%
+			.cp-info,.cp-info2
+				border: 1px solid #eeeeee
+				padding: 20px
+				margin-top: 20px
+				position: relative
+				img
+					position: absolute
+					right: 20px
+				input[type=text]
+					border-bottom: 1px solid #eeeeee
+					border-radius: 0
+				.certificationsl-list
+					margin-top: 20px
+					.other
+						width: auto
+			.enter-zone
+				img
+					margin-left: 20px
+				input
+					border-bottom: 1px solid #eeeeee
+					border-radius: 0
+				label
+					width: 30px
+		.branches-info-box li:nth-child(1)
+			align-items: center
+.branches-footer-box
+	margin-bottom: 200px
+.country-info
+	width: 100%
+	+flex-box-3
+	span
+		margin: 0 20px
+.addzone,.cp-list,.padding-box
+	button
+        background-color: $blue
+.branches-toggle
+	margin: 0 15
+.branches-toggle-rotate
+	transform: rotate(-90deg)
+	
+    
+//rfq-view 
+.user-admin .content-right .viewrfq-page
+    .delete-rfq
+        +input-style-1
+        color: white
+        background-color: $red
+        &:before
+            width: 15px
+            height: 15px
+            content: url(images/del.svg)
+    input[type=text],textarea
+        background-color: white
+
+//chat-box
+.chatbox,.chatbox-button
+	position: fixed
+	z-index: 1000
+	right: 50px
+	bottom: 50px
+	box-shadow: 2px 2px 10px rgba(0,0,0,0.15)
+.chatbox-button
+	height: 70px
+	width: 70px
+	border-radius: 99px
+	background-color: $purple
+	cursor: pointer
+	overflow: hidden
+	img
+		object-fit: none
+.chatbox
+	width: 600px
+	height: 400px
+	background-color: white
+	display: flex
+	overflow: hidden
+	border-radius: 5px
+	.chatbox-left
+		width: 200px
+		.search-user-bar
+			padding: 10px 10px
+			//border-bottom: 1px solid #eeeeee
+			background-color: $purple
+			input
+				width: 100%
+				border-radius: 99px
+				border-color: rgba(255, 255, 255, 0.3)
+				background-color: $purple
+				color: white
+				&::placeholder
+					color: rgba(255, 255, 255, 0.3)
+		ul
+			overflow-y: auto
+			height: 333px
+			margin: 0
+			border-right: 1px solid #eeeeee 
+			li
+				display: flex
+				align-items: center
+				padding: 5px 10px
+				border-bottom: 1px solid #eeeeee
+				&:hover
+					cursor: pointer
+					background-color: rgba(238, 238, 238,0.3)
+				.talk-info
+					width: 70%
+					margin-left: 10px
+					position: relative
+					img
+						position: absolute
+						right: 0
+						top: 5px
+						width: 10px
+						height: 10px
+					p
+						+etc
+						-webkit-line-clamp: 1
+				.user-img-box
+					+user-img-box2
+					img
+						height: 100%
+						object-fit: cover
+				
+	.chatbox-right
+		width: 400px
+		.user-title
+			position: relative
+			text-align: center
+			padding: 10px
+			height: 68px
+			color: white
+			//border-bottom: 1px solid #eeeeee 
+			background-color: $purple
+			a
+				display: inline-block
+				text-decoration: underline
+			.close-chat
+				position: absolute
+				right: 15px
+			.close-chat,a
+				margin-top: 12px
+		.active-chat
+			border-bottom: 1px solid #eeeeee 
+			height: 200px
+			padding: 10px
+			display: flex
+			justify-content: flex-start
+			flex-direction: column
+			overflow-y: auto
+			overflow-x: hidden
+			.chat
+				max-width: 85%
+				margin: 5px 0
+				.bubble
+					+input-style-2
+					position: relative
+					display: inline-block
+					max-width: 270px
+					//white-space: pre-wrap
+					word-wrap: break-word
+					&:after
+						top: 50%
+						border: solid transparent
+						content: " "
+						height: 0
+						width: 0
+						position: absolute
+						pointer-events: none
+						border-color: rgba(136, 183, 213, 0)
+						border-width: 10px
+						margin-top: -10px
+					a
+						color: $blue-b2
+						text-decoration: underline
+						max-width: 270px
+				
+			span
+				font-size: 10px
+				color: #dbdbdb
+				display: block
+			.you
+				color: white
+				align-self: flex-start
+				float: left
+				.bubble
+					background-color: $yellow
+					&:after
+						right: 100%
+						border-right-color: $yellow
+				span
+					text-align: left
+			.me
+				float: right
+				align-self: flex-end
+				text-align: right
+				.bubble
+					background-color: #eeeeee
+					text-align: left
+					&:after
+						left: 100%
+						border-left-color: #eeeeee
+				span
+					text-align: right
+		.write
+			padding: 10px
+			position: relative
+			textarea
+				height: 70px
+			.enter-img
+				position: absolute
+				right: 30px
+				top: 45px
+				cursor: pointer
+			ul
+				margin-left: 20px
+				li
+					display: inline-block
+					margin-right: 10px
+					color: #a3a3a3
+					cursor: pointer
+					position: relative
+					vertical-align: top
+					span
+						margin-left: 10px
+						transform: translate(0, -6px)
+						display: inline-block
+					.function-list
+						position: absolute
+						width: 300px
+						height: 330px
+						background-color: white;
+						border: 1px solid #eeeeee
+						top: -100%
+						left: 50%
+						transform: translate(-50%,-100%)
+						border-radius: 5px
+						display: none
+						box-shadow: 2px 2px 10px rgba(0,0,0,0.15)
+						.function-close
+							position: absolute
+							right: 15px
+							top: 15px
+							z-index: 1000
+						h4
+							border-bottom: 1px solid #eeeeee
+							padding: 15px
+							margin: 0
+							cursor: auto
+							color: black
+						.rfq-order:before
+							content: url(images/rfq2.png)
+						.product-order:before
+							content: url(images/Shop2.png)
+						.expo-order:before
+							content: url(images/ExhibitionPlanner.png)
+						.list-box
+							height: 273px
+							overflow-y: scroll
+							cursor: auto
+						.list
+							//width: 100%
+							margin: 10px 20px
+							padding-bottom: 10px
+							border-bottom: 1px solid #eeeeee
+							display: flex
+							align-items: flex-start
+							font-size: $sf
+							.order-img-box
+								+user-img-box2
+								margin-right: 15px
+								border-radius: 0
+								img
+									height: 100%
+									object-fit: cover
+							.list-right
+								flex-basis: 75%
+								p
+									width: 100%
+									+etc
+									margin: 0 0 10px
+									display: -webkit-box
+									line-height: 20px
+								.link
+									color: white
+									+input-style-2
+									background-color: $blue
+									display: inline-block
+									padding: 5px 10px
+									cursor: pointer
+									float: right
+					input[type=file]
+						width: 10px
+						height: 10px
+						position: absolute
+						padding: 0
+						opacity: 0
+				.up-img
+					overflow: hidden
+					
+.chat-box-out
+	display: none
+#now-chat
+	display: block
+
+	
+//user-popup
+.popup-bg
+    display: none
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.7)
+    z-index: 1000000
+    hr
+        margin: 0
+    h3
+        margin-left: 30px
+        &:before
+            content: url(images/user.png)
+    p
+        margin: 0
+    .popup-close
+        position: absolute
+        right: 50px
+        margin-top: -35px
+        cursor: pointer
+    //.padding-box
+        padding: 20px
+    .user-card-edit,.shop-open-sets,.leave-team-enter,.ratings-box
+        position: relative
+        border-radius: 5px
+        background-color: white
+        width: 800px
+        margin: 50px auto
+        height: 85%
+        overflow-y: auto
+        .card-info
+            width: 600px
+            margin: auto
+            text-align: left
+            small
+                color: $gary
+                display: block
+                text-align: center
+            .list-box
+                display: flex
+                margin: 10px 0
+                align-items: center
+                label
+                    width: 26%
+                    text-align: right
+                input[type=text],.personal-choose,.phone-choose,textarea
+                    width: 72%
+                    text-align: left
+                .flexbox
+                    align-items: baseline
+                    display: flex
+                    margin: 0
+                    .number
+                        width: 100%
+                        border-radius: 0 5px 5px 0
+                    select
+                        margin-right: 10px
+                    input
+                        width: 50%
+                        &:first-child,
+                            margin-right: 10px
+            select
+                background-position: 90% center
+            .phone-box
+                align-items: baseline
+            .phone-choose,.country-box
+                .phone-code
+                    +input-style-1
+                    margin-right: -2px
+                    border-radius: 5px 0 0 5px
+                    text-align: center
+                    width: 150px
+                select
+                    width: 50%
+                    margin-top: 10px
+                .flexbox
+                    margin: 10px 0
+                .get-code
+                    background-color: $black
+                    color: white
+            .personal-box
+                align-items: baseline
+                .gender
+                    display: block
+                    margin: 20px 0 10px 0
+                .personal-choose
+                    .flexbox
+                        >input
+                            width: 100%
+                            &:first-child
+                                width: 50%
+                    >input
+                        width: 100%
+                        margin: 10px 0
+                .company-info
+                    select,.addressbox
+                        width: 50%
+                        input
+                            width: 100%
+                            &:first-child
+                                margin-bottom: 10px
+            .user-img-box
+                margin: 20px auto
+                +user-img-box
+                height: 120px
+                width: 120px
+                position: relative
+                overflow: inherit
+                background: url(images/user-gary-b.png) no-repeat center center
+                .user-update,.shop-update
+                    +user-img-box
+                    height: 119px
+                    width: 119px
+                    overflow: hidden
+                    border: none
+                    position: absolute
+                    left: 0
+                    top: 0
+                    img
+                        height: 100%
+                        object-fit: cover
+                    input
+                        width: 100%
+                        height: 100%
+                        +center
+                        opacity: 0
+                        border-radius: 99px
+        .savebox
+            text-align: center
+            input
+                background-color: $red
+                color: white
+                width: 200px
+.warn
+    display: block
+    padding: 5px 0
+    color: $red
+    text-align: center
+.error
+    border-color: $pink
+
+//ratings-page
+.ratings-page
+	.ratings-box
+		width: 600px
+		overflow: hidden
+		form
+			text-align: center
+			textarea
+				max-height: 100px
+				margin: 20px 0
+			.ratings-submit
+				+input-style-2
+				width: 100%
+				background-color: $coco
+				color: white
+				cursor: pointer
+		.ratings-list
+			overflow-y: auto
+			height: 310px
+			li
+				display: flex
+				border-bottom: 1px solid #eeeeee
+				padding: 20px
+			.user-img-box
+				margin-right: 20px
+				+user-img-box
+				background-color: white
+				img
+					height: 100%
+					object-fit: cover
+			.user-ratings
+				flex-basis: 85%
+				h4
+					display: inline-block
+					margin-bottom: 10px
+				.u-good:after
+					content: '\f164'
+					font-family: FontAwesome;
+					color: $red
+					font-size: 20px
+					margin-left: 20px
+				.u-bad:after
+					content: '\f165'
+					color: $gary
+					font-family: FontAwesome;
+					font-size: 20px
+					margin-left: 20px
+				.u-text
+					color: #606060
+					font-size: $sf
+		.padding-box
+			position: relative
+			.ratings-change
+				position: absolute
+				right: 20px
+				top: 20px
+				select
+					width: 150px
+					background-position: 90% center
+.rating-title
+	margin: 0 35px
+	&:before
+		content: url(images/talk.png)
+		transform: translate(0,7px)
+.popup-bg .ratings-title:before
+	content: url(images/selectedshops-r.png)
+	transform: translate(0,7px)
+
+//like-button
+.ratings-button
+	// display: inline-block
+	// margin-left: -40px
+	margin: 0
+	display: flex
+	justify-content: center
+	.like,.dislike
+		position: relative
+		font-size: 20px
+		//width: 25px
+		//height: 25px
+		//text-align: center
+		//float: left
+		cursor: pointer
+		i
+			position: absolute
+			left: 0
+			right: 0
+			//transition: all 0.5s ease-in-out
+			&:before
+				margin-right: 40
+		&:after
+			margin-left: 30px
+			font-size: $nf
+			transform: translate(0,5px)
+			display: block
+	.dislike
+		&:after
+			content: 'Bad'
+		&:hover
+			color: $gary
+	.like
+		margin-right: 60px
+		&:after
+			content: 'Good'
+		&:hover
+			color: $red
+	.like-active
+		color: $red
+	.dislike-active
+		color: $gary
+
+//popup-add-admin
+.popup-add-admin
+    .popup-add-admin-form
+        width: 600px
+        height: auto
+        padding-bottom: 30px
+    .addinfo
+        width: 550px
+        margin: auto
+        padding: 40px 20px
+        p
+            margin: 0 0 20px 0
+        input
+            width: 100%
+    .agreebox
+        text-align: center
+        a
+            color: $pink
+            text-decoration: underline
+        label
+            text-align: center
+            margin: 0
+        input[type="submit"]
+            +input-style-2
+            background-color: $blue
+            color: white
+            width: 150px
+            margin-top: 30px
+    
+//websit-message
+.website-message
+	position: relative
+	border-radius: 5px
+	background-color: white
+	width: 800px
+	margin: 50px auto
+	height: 85%
+	overflow-y: auto
+	h3:before
+		content: url(images/mail-r.png)
+	label
+		margin: 0 20px 0 50px
+		display: block
+		//flex-basis: 10%
+		text-align: right
+		//width: 100
+	.flexbox
+		+flex-box-2
+		justify-content: flex-start
+	p
+		text-align: justify
+		padding-right: 20px
+		flex-basis: 90%
+
+//shop-message
+.message-tag
+    position: absolute
+    right: 0
+    color: $yellow
+    &:before
+        content: url(images/rfq-y.png)
+        transform: translate(0,0)
+.popup-website1
+	.message-tag
+		transform: translate(0,4px)
+		width: 150px
+		position: inherit
+		margin-top: 10
+		display: inline-block
+.admin-photo
+    width: 100px
+    text-align: right
+    .img-box
+        +user-img-box
+        display: inline-block
+.user-admin .exp-page .card-list > li .ex-info .admin-info h4
+    margin-top: 15px
+.user-admin .exp-page .card-list > li .ex-info .admin-fuction
+    flex-basis: auto
+    width: 100px
+        
+////shop-open-popup
+//.popup-shop-open .shop-open-sets
+//    h3:before
+//        content: url(images/products.png)
+//    .card-info
+//        .user-img-box
+//            background: url(images/shop-open-bg.png) no-repeat center center
+//        .common
+//            display: block
+//            padding: 15px 0
+//            text-align: justify
+//            width: 450px
+//            margin: auto
+//        .country-box select
+//            margin-top: 0
+//        .s-introduction
+//            align-items: baseline
+//            textarea
+//                min-height: 200px
+//        .termsbox
+//            margin-top: 20px
+//            text-align: center
+//            a
+//                color: $pink
+//    .paybox
+//        margin-top: 30px
+//        p
+//            margin-top: 15px
+//            a
+//                color: $blue
+////shop-guys
+//.user-admin .shop-open-page .shop-info .shop-guys
+//    width: 100%
+//    float: inherit
+//    display: inline-block
+//    text-align: right
+//    li:last-child
+//        &:before
+//            content: url(images/close-w.png)
+//.popup-leave-teams,.popup-change-admin
+//    .leave-team-enter
+//        height: auto
+//        h3:before
+//            content: url(images/leave.png)
+//        .shop-guys-box
+//            margin: 30px auto
+//            p
+//                color: $gary
+//            input
+//                width: 100%
+//                margin: 10px 0
+//        .savebox
+//            input:first-child
+//                background-color: $blue
+//                margin-right: 15px
+
+//change-admin           
+.popup-change-admin
+    .leave-team-enter
+        h3:before
+            content: url(images/user.png)
+        .savebox
+            input:first-child
+                background-color: $red
+                margin-right: 0
+//notice    
+.notice
+    position: relative
+    border-radius: 5px
+    background-color: white
+    margin: 50px auto
+    width: 500px
+    text-align: center
+    margin: 200px auto 0
+    p
+        margin: 20px auto 40px
+    .flexbox
+        +flex-box-2
+        width: 70%
+        margin: auto
+        .popup-close
+            position: inherit
+            float: inherit
+            margin-top: 0px
+            +input-style-2
+            background-color: $red
+            width: 50%
+            color: white
+            //margin: 50px auto 20px
+        input
+            width: 50%
+            margin-right: 15px
+            background-color: $blue
+            color: white
+    .img-box
+        position: absolute
+        +center
+        top: -15%
+        height: 100px
+        background-color: white
+        border-radius: 99px
+        width: 100px
+        img
+            height: auto
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%,-50%)
+    h3
+        margin: 50px 0 0 0
+        &:before
+                content: normal
+.admin-menu,.list-close,.mobile-userlist
+	display: none
+
+//RWD
+@media screen and (max-width: 768px)
+	//user-admin
+	.user-admin
+		.content-left
+			//flex-basis: 0%
+			.fixed
+				width: auto
+				position: inherit
+				z-index: 10000
+		.content-right
+			.message-page ul 
+				.business-list
+					.message-img
+						flex-basis: 25%
+					.dwload
+						width: 320
+				li .message-img
+					flex-basis: 15%
+			.addrfq-page > form ul li
+				.main-products .main-products-box
+					grid-template-columns: repeat(3,1fr)
+				.photo-list
+					flex-wrap: wrap
+					height: auto
+					li
+						flex-basis: 46%
+						height: 100px
+						margin-bottom: 10
+			.wrapper
+				margin-bottom: 150
+				//flex-basis: 100%
+			.page-tab
+				transform: translate(0, 0)
+				display: none
+				float: right
+				li
+					width: 100%
+					border-right: none
+				li:not(:first-child)
+					margin-left: 0
+			.admin-menu
+				display: block
+				padding: 20 25 15
+				text-align: center
+				border: 1px solid #eeeeee
+				background: white
+				.admin-menu-left-button
+					float: left
+					display: none
+				.mobile-logo
+				.admin-menu-button
+					float: right
+		.shop-open-page .wrapper .shop-box
+				display: block
+		.exp-page .card-list > li
+			flex-wrap: wrap 
+			.card-box
+				flex-basis: 100%
+			.card-function
+				flex-basis: 100%
+				text-align: right
+				//margin: 0 20 20
+				li:first-child
+					margin-right: 10
+			.ex-info .card-function
+				flex-basis: 30%
+		.favourite-page .card-list .user-card
+			flex-wrap: nowrap
+			.card-box
+				flex-basis: 90%
+			.card-function
+				flex-basis: 10%
+				text-align: right
+				margin: 0 10 0 0
+	.admin-menu-bg
+		z-index: 9999
+	.chatbox, .chatbox-button
+		z-index: 1000
+	.ratings-page .ratings-box .ratings-list
+		height: 370
+
+	//pupup-notice
+	.popup-bg
+		padding: 20
+		.ad-seach
+			width: auto
+			height: 90%
+			margin-top: 20
+			h3
+				margin: 0
+			table
+				td 
+					width: 100%
+					display: table
+					padding: 0 0 20
+					border-bottom: 1px solid #eeeeee
+			.form-content
+				overflow-y: auto
+				height: 280px
+			.search-footer input[type=submit]
+				width: 100%
+			.close
+				right: 20
+				margin-top: -20
+		.notice
+			margin-top: 100
+			width: auto
+			h3
+				margin-top: 20
+			p
+				margin: 30 0
+				overflow-y: auto
+			.img-box
+				top: -25%
+			.close
+				margin: 20 auto 20
+				width: 100%
+		.shop-open-sets
+			width: auto
+			.card-info
+				width: auto
+		.leave-team-enter
+			width: auto
+			.savebox input
+				width: 130px
+			.card-info
+				width: auto;
+		.leave-team-enter .card-info
+			padding: 20
+			margin: 0
+		.website-message
+			width: auto
+			p
+				text-align: left
+			label
+				text-align: left
+				margin: 10 0
+			.flexbox
+				display: block
+
+@media screen and (max-width: 480px)
+	.user-admin
+		.content-left
+			flex-basis: 0
+			.fixed
+				//width: 50%
+				position: fixed
+				z-index: 10000
+				left: -200
+				transition: $anim
+		.content-right
+			flex-basis: 100%
+			.wrapper
+				margin-bottom: 150
+			.branches-footer-box
+				margin-bottom: 150
+			.message-page ul .shop-message-list
+				display: block
+				padding: 20
+				.message-img .user-img-box
+					margin: 0
+			.message-page ul li,.message-page ul .business-list
+				display: block
+				padding: 20
+				.message-img
+					flex-basis: 25%
+					width: auto
+					text-align: center
+				.message-box
+					padding: 0
+				.dwload
+					margin: 15 0 0 0
+					width: auto
+					text-align: center
+					display: block
+			.addrfq-page > form .branches-info-box li:nth-child(1)
+				display: flex
+				flex-wrap: wrap
+				input
+					flex-basis: 75%
+					padding: 0
+				label
+					flex-basis: 100%
+			.addrfq-page > form ul li
+				display: block
+				.main-products .main-products-box
+					grid-template-columns: repeat(1,1fr)
+				label
+					display: inline-block
+					text-align: left
+					margin-bottom: 20
+					width: auto
+				.certificationsl-list label
+					margin-bottom: 0 
+				input,select
+					padding: 20
+				select
+					background-position: 90% center
+				.photo-list li
+					flex-basis: 100%
+					height: 130
+					margin-right: 
+				.enter-zone input
+					padding-bottom: 15 
+					//margin-bottom: 20
+				textarea
+					padding: 0
+				.cp-info .other input[type=text]
+					margin-top: 15
+			.admin-menu
+				.admin-menu-left-button
+					display: block
+			.function-botton
+				a
+					width: 100%
+					text-align: center
+				form
+					float: inherit
+					margin: 15 0
+					width: 100%
+					display: flex
+					align-items: center
+					select
+						width: 80%
+						background-position: 90% center
+						margin-right: 5
+			.card-list
+				>li
+					//margin-right: 0
+					//width: 90%
+					margin: 0 auto 20
+					display: block
+					width: 250px
+		.exp-page
+			.card-list > li
+				text-align: center
+				&:not(last-child) .card-function
+					margin: 0 20 20 0
+				.card-function
+					li:first-child
+						margin-right: 10
+				.shop-admin-ex-info
+					padding: 20
+					.admin-fuction li
+						margin-right: 0
+				.ex-info
+					display: block
+					.card-box
+						text-align: left
+					.admin-info
+						padding: 0
+						text-align: center
+					.card-function
+						margin: 0 0 20 0
+						.edit-expo
+							margin-right: 10
+					.admin-photo,.admin-fuction
+						width: auto
+						text-align: center
+						margin: 0
+			.guests
+				display: none
+			.events
+				padding: 20
+				text-align: center
+		.favourite-page .card-list .user-card
+			display: flex
+			width: auto
+			//flex-wrap: nowrap
+			margin: 0
+	.country-info span
+		margin: 0 5
+	.companypProfile-page .content-right .wrapper
+		margin-bottom: 50
+		&:last-child
+			margin-bottom: 150
+		
+	//chatbox
+	.chatbox
+		width: 100%
+		height: 100%
+		z-index: 100000
+		right: 0
+		bottom: 0
+		border-radius: 0
+		.chatbox-right
+			position: relative
+			width: 100%
+			.active-chat
+				padding: 20
+				height: 65%
+				.chat .bubble
+					max-width: 100%
+			.write
+				font-size: $sf
+				ul
+					margin: 10px 0
+					text-align: center
+					.function-call
+						position: inherit
+						.function-list
+							//overflow: hidden
+							//right: 0
+							//width: 95%
+							//position: absolute
+							bottom: 0
+							transform: translate(-50%,-17%)
+							text-align: left
+				.write-box
+					position: relative
+					.enter-img
+						bottom: 15
+						right: 20
+						top: inherit
+					textarea
+						width: 100%
+						height: 100px
+		.chatbox-left
+			left: -200
+			transition: $anim
+			position: absolute
+			z-index: 1000
+			height: 100%
+			background-color: white 
+			box-shadow: 3px 0px 5px rgba(0,0,0,0.1)
+			.search-user-bar
+				display: flex
+				align-items: center
+				img
+					margin-right: 10 
+			ul
+				border: none
+				li .talk-info p
+					text-overflow: ellipsis
+					display: block
+		.mobile-userlist
+			position: absolute
+			left: 20
+			margin-top: 12
+	.mobile-userlist,.list-close
+		display: block
+
+	//ratings-page
+	.popup-bg
+		h3
+			margin: 0
+		.close,.popup-close
+			margin-top: -20px
+			right: 20px
+		.website-message label
+			text-align: center
+	.popup-website1 .website-message label
+		text-align: left
+	.ratings-page .ratings-box
+		width: auto
+		height: 100%
+		margin-top: 0
+		overflow-y: auto
+		.ratings-list
+			.user-img-box
+			.user-ratings
+				flex-basis: 65%;
+				h4
+					+etc
+					width: 100px
+					display: inline-block
+					text-overflow: ellipsis
+				.u-name:after
+					display: inline-block;
+					transform: translate(-50%,-60%)
+		.padding-box .ratings-change
+			position: initial
+			margin-top: 20
+			label
+				display: none
+			select
+				width: 100%
+	.rating-title
+		margin: 0
+
+	//popup-shop-open
+	.popup-shop-open .shop-open-sets .card-info
+		.list-box
+			display: block
+			textarea,.phone-choose,input[type=text]
+				width: 100%
+		.country-box select
+			width: 100%
+	.popup-add-admin .addinfo
+		width: auto
+		p
+			text-align: center
+			padding: 0
+	
+	
